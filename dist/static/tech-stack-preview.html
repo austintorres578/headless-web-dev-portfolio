@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Tech Stack Section Preview</title>
+<style>
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.6;
+    color: #1a1a1a;
+    background: #ffffff;
+  }
+
+  .site-container {
+    width: 100%;
+    max-width: 1120px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .pretext {
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+    font-size: 14px;
+  }
+
+  h1, h2, h3, h4 {
+    line-height: 1.2;
+  }
+
+  p {
+    font-size: 18px;
+  }
+
+  /* ===== Tech Stack Section ===== */
+
+  .tech-stack-con {
+    background: #ffffff;
+    padding: 70px 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+  }
+
+  .tech-stack-header {
+    max-width: 650px;
+    margin-bottom: 40px;
+  }
+
+  .tech-pretext {
+    color: rgb(23 184 144);
+  }
+
+  .tech-stack-header h2 {
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .tech-stack-header p {
+    color: #5f6470;
+  }
+
+  .tech-categories {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .tech-category {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    padding: 28px;
+    background: #fff;
+    transition: 0.25s;
+  }
+
+  .js .tech-category {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.25s;
+  }
+
+  .js .tech-category.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .tech-category:hover {
+    box-shadow: 0 18px 40px rgba(20, 22, 28, 0.1);
+    transform: translateY(-3px);
+  }
+
+  .tech-category-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--accent);
+    background: color-mix(in srgb, var(--accent) 12%, white);
+    margin-bottom: 16px;
+  }
+
+  .tech-category h3 {
+    margin: 0 0 14px;
+    font-size: 18px;
+  }
+
+  .tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .tech-tags span {
+    border: 1px solid rgb(227 225 218);
+    padding: 5px 12px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #333;
+  }
+
+  @media (max-width: 780px) {
+    .tech-categories {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+</head>
+<body>
+
+  <section class="tech-stack-con">
+    <div class="site-container">
+      <div class="tech-stack-header">
+        <span class="pretext tech-pretext">— MY TOOLKIT</span>
+        <h2>The tech behind the sites I build</h2>
+        <p>A modern front-end stack paired with real WordPress and backend experience — not just one or the other.</p>
+      </div>
+
+      <div class="tech-categories">
+        <div class="tech-category">
+          <div class="tech-category-icon" style="--accent: rgb(255 90 31)">{ }</div>
+          <h3>Frontend</h3>
+          <div class="tech-tags">
+            <span>React</span>
+            <span>JavaScript</span>
+            <span>HTML5</span>
+            <span>CSS3</span>
+          </div>
+        </div>
+
+        <div class="tech-category">
+          <div class="tech-category-icon" style="--accent: rgb(31 122 224)">◎</div>
+          <h3>CMS &amp; Backend</h3>
+          <div class="tech-tags">
+            <span>WordPress</span>
+            <span>PHP</span>
+            <span>Node.js</span>
+            <span>Express</span>
+          </div>
+        </div>
+
+        <div class="tech-category">
+          <div class="tech-category-icon" style="--accent: rgb(23 184 144)">⬡</div>
+          <h3>Tools &amp; Workflow</h3>
+          <div class="tech-tags">
+            <span>Git</span>
+            <span>Figma</span>
+            <span>REST APIs</span>
+            <span>Stripe</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    document.documentElement.classList.add('js');
+
+    const techCards = document.querySelectorAll('.tech-category');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+
+    techCards.forEach((card) => observer.observe(card));
+  </script>
+
+</body>
+</html>

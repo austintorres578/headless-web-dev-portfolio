@@ -1,0 +1,38 @@
+footer{
+    background-color: black;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 200px;
+}
+
+footer > a{
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 15px;
+}
+
+footer > a img{
+    height: 20px;
+    width: auto;
+    object-fit: contain;
+}
+
+footer div{
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    gap: 15px;
+}
+
+footer div a{
+    text-decoration: none;
+    color: white;
+}
+
+footer > p{
+    text-align: center;
+    color: gray;
+}

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Tech Terminal Section Preview</title>
+<style>
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.6;
+    color: #1a1a1a;
+    background: #f7f6f2;
+  }
+
+  .site-container {
+    width: 100%;
+    max-width: 1120px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .pretext {
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+    font-size: 14px;
+  }
+
+  h2 {
+    line-height: 1.2;
+  }
+
+  p {
+    font-size: 18px;
+  }
+
+  /* ===== Tech Terminal Section ===== */
+
+  .tech-terminal-con {
+    background: #f7f6f2;
+    padding: 70px 0;
+  }
+
+  .tech-terminal-header {
+    max-width: 650px;
+    margin-bottom: 36px;
+  }
+
+  .terminal-pretext {
+    color: rgb(255 90 31);
+  }
+
+  .tech-terminal-header h2 {
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .tech-terminal-header p {
+    color: #5f6470;
+  }
+
+  .terminal-window {
+    background: #14161c;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 18px 40px rgba(20, 22, 28, 0.15);
+    max-width: 700px;
+  }
+
+  .terminal-titlebar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 18px;
+    background: #1e2029;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .terminal-dot {
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+  }
+
+  .terminal-dot.red { background: #ff5f56; }
+  .terminal-dot.yellow { background: #ffbd2e; }
+  .terminal-dot.green { background: #27c93f; }
+
+  .terminal-titlebar-label {
+    margin-left: 8px;
+    font-family: ui-monospace, "Cascadia Code", Consolas, monospace;
+    font-size: 13px;
+    color: #8a8f9b;
+  }
+
+  .terminal-body {
+    padding: 24px 26px 30px;
+    font-family: ui-monospace, "Cascadia Code", Consolas, monospace;
+    font-size: 15px;
+  }
+
+  .terminal-line {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+    opacity: 0;
+    transform: translateY(4px);
+  }
+
+  .js .terminal-line {
+    animation: line-in 0.35s ease forwards;
+  }
+
+  @keyframes line-in {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .terminal-prompt {
+    color: rgb(23 184 144);
+    flex-shrink: 0;
+    user-select: none;
+  }
+
+  .terminal-command {
+    color: #c9ccd4;
+  }
+
+  .terminal-output {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 18px;
+    margin: 4px 0 18px 24px;
+  }
+
+  .terminal-output span {
+    color: rgb(244 196 48);
+    font-size: 14px;
+  }
+
+  .terminal-output span::before {
+    content: "├─ ";
+    color: #5f6470;
+  }
+
+  .terminal-cursor {
+    display: inline-block;
+    width: 8px;
+    height: 16px;
+    background: #c9ccd4;
+    margin-left: 24px;
+    animation: blink 1s step-end infinite;
+  }
+
+  @keyframes blink {
+    50% { opacity: 0; }
+  }
+</style>
+</head>
+<body>
+
+  <section class="tech-terminal-con">
+    <div class="site-container">
+      <div class="tech-terminal-header">
+        <span class="pretext terminal-pretext">— MY TOOLKIT</span>
+        <h2>The tech behind the sites I build</h2>
+        <p>A modern front-end stack paired with real WordPress and backend experience.</p>
+      </div>
+
+      <div class="terminal-window">
+        <div class="terminal-titlebar">
+          <span class="terminal-dot red"></span>
+          <span class="terminal-dot yellow"></span>
+          <span class="terminal-dot green"></span>
+          <span class="terminal-titlebar-label">austin@portfolio — zsh</span>
+        </div>
+        <div class="terminal-body" id="terminalBody">
+          <div class="terminal-line" style="animation-delay: 0.1s">
+            <span class="terminal-prompt">$</span>
+            <span class="terminal-command">cat stack/frontend.json</span>
+          </div>
+          <div class="terminal-output" style="animation: line-in 0.35s ease forwards; animation-delay: 0.3s; opacity: 0;">
+            <span>React</span><span>JavaScript</span><span>HTML5</span><span>CSS3</span>
+          </div>
+
+          <div class="terminal-line" style="animation-delay: 0.6s">
+            <span class="terminal-prompt">$</span>
+            <span class="terminal-command">cat stack/backend.json</span>
+          </div>
+          <div class="terminal-output" style="animation: line-in 0.35s ease forwards; animation-delay: 0.8s; opacity: 0;">
+            <span>WordPress</span><span>PHP</span><span>Node.js</span><span>Express</span>
+          </div>
+
+          <div class="terminal-line" style="animation-delay: 1.1s">
+            <span class="terminal-prompt">$</span>
+            <span class="terminal-command">cat stack/tools.json</span>
+          </div>
+          <div class="terminal-output" style="animation: line-in 0.35s ease forwards; animation-delay: 1.3s; opacity: 0;">
+            <span>Git</span><span>Figma</span><span>REST APIs</span><span>Stripe</span>
+          </div>
+
+          <div class="terminal-line" style="animation-delay: 1.6s; margin-bottom: 0;">
+            <span class="terminal-prompt">$</span>
+            <span class="terminal-cursor"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    document.documentElement.classList.add('js');
+  </script>
+
+</body>
+</html>

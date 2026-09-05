@@ -1,0 +1,178 @@
+.carousel-con{
+    position: relative;
+}
+
+.element-carousel{
+    display: flex;
+    width: 100%;
+    gap: 25px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    /* Card shadows are clipped by overflow, so pad the track to let them show. */
+    padding: 5px;
+    margin: -5px;
+    /* Keep momentum scrolling on iOS. */
+    -webkit-overflow-scrolling: touch;
+    /* Firefox / IE scrollbar hiding; the container stays scrollable. */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+/* WebKit/Blink scrollbar hiding. */
+.element-carousel::-webkit-scrollbar{
+    display: none;
+}
+
+/* Respect users who have asked for reduced motion: no smooth animation,
+   but the carousel still scrolls. */
+@media (prefers-reduced-motion: reduce){
+    .element-carousel{
+        scroll-behavior: auto;
+    }
+}
+
+.element-carousel .project-content .project-details{
+    margin-top: 0px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: gray;
+}
+
+.element-carousel .project-content .project-subtitle{
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: black;
+    font-size: 20px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.project-element{
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, .5);
+    overflow: hidden;
+    text-decoration: none;
+    /* Fixed track width: no growing, no shrinking, no wrapping. On narrow
+       viewports this leaves ~1.2 cards visible so the overflow is obvious. */
+    flex: 0 0 380px;
+    max-width: 85%;
+    scroll-snap-align: start;
+    background-color: white;
+}
+
+.project-element .project-image{
+    padding: 10px;
+    height: 200px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center 10px;
+    background-color: #e6501a;
+    background-image: url('/images/project-placeholder-image.png');
+}
+
+.project-element .project-image .project-image-wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 10px;
+}
+
+.project-element .project-image span{
+    height: fit-content;
+    padding: 1px 8px;
+    border-radius: 99px;
+    background-color: white;
+     box-shadow: 0px 0px 5px rgba(0, 0, 0, .25);
+     color: #ff5a1f;
+     font-weight: bold;;
+}
+
+
+.project-element .project-content-con{
+    padding: 0px 10px 10px 10px;
+}
+
+.project-element .project-content-con .project-title-con{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding-top: 15px;
+}
+
+.project-element .project-content-con .project-title-con p{
+    margin-top: 0px;
+    margin-bottom: 0px;
+    color: gray;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: bold;
+}
+
+.project-element .project-content-con .project-title-con p:last-of-type{
+    display: flex;
+    align-items: center;
+}
+
+.project-element .project-content-con .project-title-con p:last-of-type:before{
+    content:"•";
+    margin-right: 5px;
+}
+
+.project-element .project-content-con .project-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.project-element .project-cta-con p{
+    font-weight: bold;
+    border-bottom:solid 2px #ff5a1f;
+    width: fit-content;
+    color: black;
+}
+
+.carousel-nav-con{
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.carousel-arrow{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 44px;
+    width: 44px;
+    padding: 0;
+    font-size: 20px;
+    line-height: 1;
+    border: solid 1px black;
+    border-radius: 99px;
+    background-color: transparent;
+    color: black;
+    cursor: pointer;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+    transition: background-color .2s ease, color .2s ease, opacity .2s ease;
+}
+
+.carousel-arrow:hover:not(:disabled){
+    background-color: #ff5a1f;
+    border-color: #ff5a1f;
+    color: white;
+}
+
+.carousel-arrow:disabled{
+    opacity: .35;
+    cursor: default;
+    box-shadow: none;
+}

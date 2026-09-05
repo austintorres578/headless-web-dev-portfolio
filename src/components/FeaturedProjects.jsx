@@ -1,4 +1,23 @@
 import styles from '../components/FeaturedProjects.module.css'
+import ProjectCarousel from '../components/ProjectCarousel.jsx'
+
+// Placeholder content until these come from the CMS.
+const placeholderProject = {
+    href: '#',
+    categories: ['Category', 'Category', 'Category'],
+    title: 'Project Title',
+    type: 'Project Type',
+    subtitle: 'Project subtitle',
+    details: "Project details Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum cum omnis consectetur? Doloribus rem aut nam. Veniam nesciunt provident error, sapiente voluptatum in itaque culpa excepturi sequi minus deleniti aliquid.",
+    cta: 'Project CTA',
+}
+
+const projects = [
+    { ...placeholderProject, id: 1 },
+    { ...placeholderProject, id: 2 },
+    { ...placeholderProject, id: 3 },
+    { ...placeholderProject, id: 4 },
+]
 
 export default function FeaturedProjects() {
     return (
@@ -9,108 +28,7 @@ export default function FeaturedProjects() {
                     <h2>Projects that solved a real problem</h2>
                     <p>Each of these started as a business need, not a design brief. Here's what the site had to do - and what to make it happen.</p>
                 </div>
-                <div className={styles["element-carousel"]}>
-                    <a href='#' className={styles["project-element"]}>
-                        <div className={styles["project-image"]}>
-                            <div className={styles['project-image-wrapper']}>
-                                <span>Category</span>
-                                <span>Category</span>
-                                <span>Category</span>
-                            </div>
-                        </div>
-                        <div className={styles["project-content-con"]}>
-                            <div className={styles["project-title-con"]}>
-                                <p>Project Title</p>
-                                <p>Project Type</p>
-                            </div>
-                            <div className={styles["project-content"]}>
-                                <div>
-                                    <p className={styles["project-subtitle"]}>Project subtitle</p>
-                                    <p className={styles["project-details"]}>Project details Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum cum omnis consectetur? Doloribus rem aut nam. Veniam nesciunt provident error, sapiente voluptatum in itaque culpa excepturi sequi minus deleniti aliquid.</p>
-                                </div>
-                                <div className={styles["project-cta-con"]}>
-                                    <p>Project CTA</p>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                    <a href='#' className={styles["project-element"]}>
-                        <div className={styles["project-image"]}>
-                            <div className={styles['project-image-wrapper']}>
-                                <span>Category</span>
-                                <span>Category</span>
-                                <span>Category</span>
-                            </div>
-                        </div>
-                        <div className={styles["project-content-con"]}>
-                            <div className={styles["project-title-con"]}>
-                                <p>Project Title</p>
-                                <p>Project Type</p>
-                            </div>
-                            <div className={styles["project-content"]}>
-                                <div>
-                                    <p className={styles["project-subtitle"]}>Project subtitle</p>
-                                    <p className={styles["project-details"]}>Project details Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum cum omnis consectetur? Doloribus rem aut nam. Veniam nesciunt provident error, sapiente voluptatum in itaque culpa excepturi sequi minus deleniti aliquid.</p>
-                                </div>
-                                <div className={styles["project-cta-con"]}>
-                                    <p>Project CTA</p>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                    <a href='#' className={styles["project-element"]}>
-                        <div className={styles["project-image"]}>
-                            <div className={styles['project-image-wrapper']}>
-                                <span>Category</span>
-                                <span>Category</span>
-                                <span>Category</span>
-                            </div>
-                        </div>
-                        <div className={styles["project-content-con"]}>
-                            <div className={styles["project-title-con"]}>
-                                <p>Project Title</p>
-                                <p>Project Type</p>
-                            </div>
-                            <div className={styles["project-content"]}>
-                                <div>
-                                    <p className={styles["project-subtitle"]}>Project subtitle</p>
-                                    <p className={styles["project-details"]}>Project details Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum cum omnis consectetur? Doloribus rem aut nam. Veniam nesciunt provident error, sapiente voluptatum in itaque culpa excepturi sequi minus deleniti aliquid.</p>
-                                </div>
-                                <div className={styles["project-cta-con"]}>
-                                    <p>Project CTA</p>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                    <a href='#' className={styles["project-element"]}>
-                        <div className={styles["project-image"]}>
-                            <div className={styles['project-image-wrapper']}>
-                                <span>Category</span>
-                                <span>Category</span>
-                                <span>Category</span>
-                            </div>
-                        </div>
-                        <div className={styles["project-content-con"]}>
-                            <div className={styles["project-title-con"]}>
-                                <p>Project Title</p>
-                                <p>Project Type</p>
-                            </div>
-                            <div className={styles["project-content"]}>
-                                <div>
-                                    <p className={styles["project-subtitle"]}>Project subtitle</p>
-                                    <p className={styles["project-details"]}>Project details Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum cum omnis consectetur? Doloribus rem aut nam. Veniam nesciunt provident error, sapiente voluptatum in itaque culpa excepturi sequi minus deleniti aliquid.</p>
-                                </div>
-                                <div className={styles["project-cta-con"]}>
-                                    <p>Project CTA</p>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-
-                </div>
-                <div className={styles['button-cta-con']}>
-                    <a href='#'><button>View All Work</button></a>
-                </div>
+                <ProjectCarousel projects={projects} />
             </div>
         </section>
     )
