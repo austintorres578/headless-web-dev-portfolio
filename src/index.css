@@ -5,8 +5,37 @@
 }
 
 body {
-  margin: 0;
+  margin: 0px;
+  padding-top: 110px;
   overflow-x: hidden;
+  font-family: "Inter", system-ui, sans-serif;
+}
+
+h1, h2, h3, h4 {
+  font-family: "Sora", sans-serif;
+  font-weight: 700;
+}
+
+.orange-button {
+  background: rgb(255 90 31);
+  border: solid 1px rgb(255 90 31);
+  padding: 8px 15px;
+  border-radius: 99px;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  transition: .25s;
+  position: relative;
+  top: 0px;
+  cursor: pointer;
+}
+
+.orange-button:hover{
+  top: -3px;
+}
+
+.empty-space{
+  height: 30px;
 }
 
 
@@ -121,4 +150,3 @@ code {
   padding: 4px 8px;
   background: var(--code-bg);
 } */
-

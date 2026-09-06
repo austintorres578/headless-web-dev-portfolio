@@ -9,21 +9,28 @@
 }
 
 .tech-section {
-    background-color: #fffaf5;
+    background-color: #fdf9f4;
 }
 
 .tech-section .section-wrapper {
     max-width: 1260px;
     margin-left: auto;
     margin-right: auto;
-    padding: 30px;
+    padding: 90px 30px;
     display: flex;
+    flex-direction: column-reverse;
     align-items: center;
     gap:30px;
 }
 
-.tech-section .section-wrapper > div{
-    width: 50%;
+.tech-section .section-wrapper > div:first-of-type{
+    width: 100%;
+}
+
+.tech-section .section-wrapper > div:last-of-type{
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .tech-section .section-wrapper .generic-section-header .eyebrow {

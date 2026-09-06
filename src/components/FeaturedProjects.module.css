@@ -6,19 +6,19 @@
 }
 
 .featured-project-section{
-    background-color: rgb(255, 250, 245);
+    background-color: white;
 }
 
 .featured-project-section .section-wrapper{
     max-width:1260px;
     margin-left: auto;
     margin-right: auto;
-    padding: 30px;
+    padding: 60px 30px;
 }
 
-.featured-project-section .generic-section-header{
+/* .featured-project-section .generic-section-header{
     margin-bottom: 30px;
-}
+} */
 
 .featured-project-section .generic-section-header .eyebrow{
     color:#ff5a1f;
@@ -62,4 +62,10 @@
     background-color: transparent;
     font-weight: bold;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5)
+}
+
+.featured-project-section .header-wrapper{
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
 }

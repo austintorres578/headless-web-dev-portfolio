@@ -9,13 +9,10 @@ export default function HomeHero() {
                 <div className={styles["hero-content"]}>
                     <span className={styles["pretext"]}>Freelance Web Developer · NJ</span>
                     <h1>
-                        I build fast, <strong>search-optimized</strong> websites that turn
-                        visitors into customers.
+                        <strong>Front-end developer</strong> building fast, accessible interfaces in <strong>React</strong> and <strong>WordPress</strong>
                     </h1>
                     <p>
-                        Pixel-perfect front-end work in React and WordPress, backed by real
-                        SEO — so the sites I build don't just look good, they get found and
-                        convert.
+                        Pixel-perfect front-end work in React and WordPress, backed by real SEO. I started out building sites for local NJ businesses and I'm now pushing further into React — so the sites I build don't just look good, they get found and convert.
                     </p>
                     <div className={styles["button-flex"]}>
                         <Link to="/" className={styles["orange-button"]}>See My Work</Link>

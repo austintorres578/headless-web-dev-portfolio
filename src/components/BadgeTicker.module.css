@@ -1,0 +1,71 @@
+.badge-ticker-viewport {
+    position: relative;
+    width: 100%;
+    margin-top: 30px;
+    /* Fade the badges out at both edges instead of letting them pop in and
+       out at a hard boundary. */
+    -webkit-mask-image: linear-gradient(
+        to right,
+        transparent 0,
+        #000 40px,
+        #000 calc(100% - 40px),
+        transparent 100%
+    );
+    mask-image: linear-gradient(
+        to right,
+        transparent 0,
+        #000 40px,
+        #000 calc(100% - 40px),
+        transparent 100%
+    );
+    overflow: hidden;
+}
+
+/* The track holds two identical copies of the badge list, so translating it
+   exactly -50% lands copy B where copy A started and the loop is seamless. */
+.badge-ticker-track {
+    display: flex;
+    width: max-content;
+    animation: scroll-left var(--badge-ticker-duration, 24s) linear infinite;
+}
+
+.badge-ticker-track:hover {
+    animation-play-state: paused;
+}
+
+.badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 18px;
+    margin-right: 12px;
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #444;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.badge svg {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+}
+
+@keyframes scroll-left {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .badge-ticker-track {
+        animation: none;
+    }
+}

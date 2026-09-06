@@ -1,5 +1,10 @@
 .site-header {
-  background: #14161ceb;
+  background: #26282e;
+  position: fixed;
+  width: 100%;
+  z-index: 99;
+  top: 0px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
 }
 
 .site-header .site-header__inner {

@@ -21,7 +21,6 @@ export default function Header() {
                     <ul id="primary-menu" className={styles['nav-menu']}>
                         <li><a href="/">Tech</a></li>
                         <li><a href="/">Projects</a></li>
-                        <li><a href="/">About</a></li>
                         <li><a href="/contact">Contact</a></li>
                         <li><a className={styles['orange-button']} href='#'>Resume</a></li>
                     </ul>
