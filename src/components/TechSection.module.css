@@ -12,36 +12,44 @@
     background-color: #fdf9f4;
 }
 
+.tech-section .section-wrapper:before {
+    content: "Tech";
+    position: absolute;
+    left: -7%;
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(270deg);
+    font-size: 120px;
+    font-weight: bold;
+    color: black;
+}
+
 .tech-section .section-wrapper {
     max-width: 1260px;
     margin-left: auto;
     margin-right: auto;
-    padding: 90px 30px;
+    padding: 60px 30px;
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: row-reverse;
     align-items: center;
     gap:30px;
+    position: relative;
 }
 
-.tech-section .section-wrapper > div:first-of-type{
-    width: 100%;
+.tech-section .section-wrapper > div{
+    width: 50%;
 }
 
-.tech-section .section-wrapper > div:last-of-type{
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-}
 
 .tech-section .section-wrapper .generic-section-header .eyebrow {
     color: #ff5a1f;
     display: flex;
     align-items: center;
+    font-weight: bold;
 }
 
 .tech-section .section-wrapper .generic-section-header .eyebrow:before{
     content:"";
-    height: 1px;
+    height: 1.5px;
     width: 25px;
     background-color:#ff5a1f;
     margin-right: 10px;

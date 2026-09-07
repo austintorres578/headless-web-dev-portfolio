@@ -3,6 +3,7 @@ import ColorDiv from '../components/ColorDiv.jsx'
 import TechSection from '../components/TechSection.jsx'
 import FeaturedProjects from '../components/FeaturedProjects.jsx'
 import ContactSection from '../components/ContactSection.jsx'
+import ExperienceSection from '../components/ExperienceSection.jsx'
 
 export default function Home() {
     return(
@@ -11,6 +12,7 @@ export default function Home() {
             <ColorDiv />
             <TechSection />
             <FeaturedProjects />
+            <ExperienceSection />
             <ColorDiv />
             <ContactSection />
         </>

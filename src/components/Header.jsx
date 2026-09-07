@@ -22,9 +22,10 @@ export default function Header() {
                         <li><a href="/">Tech</a></li>
                         <li><a href="/">Projects</a></li>
                         <li><a href="/contact">Contact</a></li>
-                        <li><a className={styles['orange-button']} href='#'>Resume</a></li>
                     </ul>
                 </nav>
+
+                <a className={styles['orange-button']} href='#'><button className='orange-button'>Resume</button></a>
             </div>
         </header>
     )

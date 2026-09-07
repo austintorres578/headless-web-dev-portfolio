@@ -4,20 +4,16 @@
     margin-top: 30px;
     /* Fade the badges out at both edges instead of letting them pop in and
        out at a hard boundary. */
-    -webkit-mask-image: linear-gradient(
-        to right,
-        transparent 0,
-        #000 40px,
-        #000 calc(100% - 40px),
-        transparent 100%
-    );
-    mask-image: linear-gradient(
-        to right,
-        transparent 0,
-        #000 40px,
-        #000 calc(100% - 40px),
-        transparent 100%
-    );
+    -webkit-mask-image: linear-gradient(to right,
+            transparent 0,
+            #000 40px,
+            #000 calc(100% - 40px),
+            transparent 100%);
+    mask-image: linear-gradient(to right,
+            transparent 0,
+            #000 40px,
+            #000 calc(100% - 40px),
+            transparent 100%);
     overflow: hidden;
 }
 
@@ -40,7 +36,7 @@
     padding: 8px 18px;
     margin-right: 12px;
     background: white;
-    border: 1px solid rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(0, 0, 0, 0.5);
     border-radius: 999px;
     font-size: 14px;
     font-weight: 600;
@@ -59,6 +55,7 @@
     from {
         transform: translateX(0);
     }
+
     to {
         transform: translateX(-50%);
     }

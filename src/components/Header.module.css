@@ -27,6 +27,7 @@
   align-items: center;
   list-style: none;
   gap: 25px;
+  padding-left: 0px;
 }
 
 .site-header .nav-menu a{
@@ -41,7 +42,7 @@
 }
 
 .site-header .site-logo{
-    height:25px;
+    height:20px;
 } 
 
 .site-header .site-logo img{

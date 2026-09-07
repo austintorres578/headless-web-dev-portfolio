@@ -38,14 +38,18 @@
 }
 
 .project-image {
-  background: rgb(255 90 31);
+  background: #e7521b;
+  background-image: url('../../public/images/project-placeholder-image.png');
+  background-position: center;
+  background-size: 225px;
+  background-repeat: no-repeat;
   display: flex;
   align-items: flex-start;
   padding: 14px;
   gap: 6px;
   flex-wrap: wrap;
   flex: 1;
-  min-height: 140px;
+  min-height: 150px;
 }
 
 .project-card.featured .project-image { min-height: 220px; }
