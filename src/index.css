@@ -16,6 +16,11 @@ h1, h2, h3, h4 {
   font-weight: 700;
 }
 
+h2{
+  font-size: 36px;
+  margin-bottom: 0px;
+}
+
 .orange-button {
   background: rgb(255 90 31);
   border: solid 1px rgb(255 90 31);

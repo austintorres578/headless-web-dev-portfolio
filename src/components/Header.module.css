@@ -62,3 +62,134 @@
 .site-header .nav-menu .orange-button:hover{
   background-color: #fc7e51;
 }
+
+.site-header .mobile-nav-con{
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.39);
+  right: 0px;
+  top: 0px;
+  height: 100vh;
+  width: 100%;
+
+}
+
+.site-header .mobile-nav-con .mobile-nav-wrapper{
+  width: 100%;
+  max-width:350px;
+  background: rgb(26, 22, 20);;
+  padding: 50px 30px;
+  display: block;
+  margin-left: auto;
+  height: 100%;
+  position: relative;
+   display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.site-header .mobile-nav-con .mobile-nav-wrapper nav{
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.site-header .mobile-nav-con .mobile-nav-wrapper > a{
+  width: fit-content;
+}
+
+
+.site-header .mobile-nav-con .mobile-nav-wrapper > div:first-of-type a img{
+  width: 175px;
+  object-fit: contain;
+  height: auto;
+}
+
+.site-header .mobile-nav-con .mobile-nav-wrapper nav a{
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  border-bottom: solid 1px #413c3a;
+  padding-bottom: 15px;
+  font-size: 18px;
+  transition:.15s;
+}
+
+.site-header .mobile-nav-con.invisible{
+  opacity: 0;
+  pointer-events: none;
+}
+
+.site-header .mobile-nav-con .mobile-nav-wrapper nav a:hover{
+  color: #f94a01;
+}
+
+.site-header .mobile-nav-con  .mobile-socials{
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.site-header .mobile-nav-con  .mobile-socials button{
+  border-radius: 99px;
+  border: none;
+  height: 30px;
+  width: 30px;
+  border: solid 1px #413c3a;
+  background: transparent;
+  color: white;
+  fill: white;
+  transition:.15s;
+  cursor: pointer;
+}
+
+.site-header .mobile-nav-con  .mobile-socials button:hover{
+  border: solid 1px #f94a01;
+  fill:#f94a01;
+}
+
+.site-header .mobile-nav-con .mobile-resume-button{
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  display: block;
+  margin-bottom: 15px;
+  cursor: pointer;
+}
+
+.site-header .mobile-nav-con .mobile-resume-button button{
+  width: 100%;
+  border-radius: 99px;
+  background: #f94a01;
+  border: none;
+  height: 35px;
+  color: white;
+}
+
+.site-header .mobile-nav-con .mobile-nav-wrapper .close-button{
+  position: absolute;
+  top: 10px;
+  right:10px;
+  font-weight: bold;
+  background: transparent;
+  border: solid 1px #413c3a;
+  border-radius: 3px;
+  padding: 5px;
+  color: white;
+  width: 30px;
+  height: 30px;
+  transition: .15s;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.site-header .mobile-nav-con .mobile-nav-wrapper .close-button:hover{
+  color: #f94a01;
+  border: solid 1px #f94a01;
+}
+
+/* .site-header .mobile-nav nav{
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+} */

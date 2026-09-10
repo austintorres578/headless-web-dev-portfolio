@@ -5,6 +5,12 @@
     }
 }
 
+@media(max-width:765px){
+    body .featured-project-section .section-wrapper:before{
+        display: none;
+    }
+}
+
 .featured-project-section{
     background-color: white;
 }

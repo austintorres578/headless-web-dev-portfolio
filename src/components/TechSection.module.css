@@ -8,6 +8,12 @@
     }
 }
 
+@media(max-width:765px){
+    body .tech-section .section-wrapper:before{
+        display: none;
+    }
+}
+
 .tech-section {
     background-color: #fdf9f4;
 }

@@ -1,3 +1,22 @@
+@media(max-width:765px){
+    body .experience-section .section-wrapper:before {
+        display: none;
+    }
+
+    body .experience-section .timeline::before{
+        display: none;
+    }
+
+    body .experience-section .timeline-dot{
+        display: none;
+    }
+
+    body .timeline{
+        padding-left: 0px;
+    }
+
+}
+
 .experience-section {
     background-color: #fdf9f4;
 }
