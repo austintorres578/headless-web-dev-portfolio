@@ -1,3 +1,10 @@
+@media(max-width:1535px){
+    body .tech-section .section-wrapper:before{
+        display: none;
+    }
+}
+
+
 @media(max-width:850px){
     body .tech-section .section-wrapper{
         flex-direction: column-reverse;
@@ -9,8 +16,8 @@
 }
 
 @media(max-width:765px){
-    body .tech-section .section-wrapper:before{
-        display: none;
+    body .tech-section .section-wrapper{
+        padding: 60px 15px;
     }
 }
 

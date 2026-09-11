@@ -1,3 +1,9 @@
+@media(max-width:1535px){
+    body .featured-project-section .section-wrapper:before{
+        display: none;
+    }
+}
+
 @media(max-width:850px){
     body .featured-project-section .section-wrapper{
         flex-direction: column;
@@ -6,8 +12,8 @@
 }
 
 @media(max-width:765px){
-    body .featured-project-section .section-wrapper:before{
-        display: none;
+    body .featured-project-section .section-wrapper{
+        padding: 60px 15px;
     }
 }
 

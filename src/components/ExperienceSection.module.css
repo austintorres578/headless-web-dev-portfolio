@@ -1,7 +1,10 @@
-@media(max-width:765px){
+@media(max-width:1535px){
     body .experience-section .section-wrapper:before {
         display: none;
     }
+}
+
+@media(max-width:765px){
 
     body .experience-section .timeline::before{
         display: none;
@@ -13,6 +16,10 @@
 
     body .timeline{
         padding-left: 0px;
+    }
+
+    body .experience-section .section-wrapper{
+        padding: 60px 15px;
     }
 
 }

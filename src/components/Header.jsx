@@ -1,8 +1,12 @@
+import { useState } from 'react'
+
 import styles from './Header.module.css'
 
 import siteLogo from '../../public/images/site_logo.png'
 
 export default function Header() {
+    const [mobileNavOpen, setMobileNavOpen] = useState(false)
+
     return (
         <header className={styles['site-header']}>
             <div className={styles['site-header__inner']}>
@@ -26,12 +30,18 @@ export default function Header() {
                 </nav>
 
                 <a className={styles['orange-button']} href='#'><button className='orange-button'>Resume</button></a>
+                <button
+                    className={styles['ham-menu-button']}
+                    onClick={() => setMobileNavOpen(true)}
+                    aria-controls="mobile-nav"
+                    aria-expanded={mobileNavOpen}
+                ><img src="/images/hamburger-menu-white.svg" alt="Open menu"></img></button>
             </div>
-            <div className={`${styles['mobile-nav-con']} ${styles['invisible']}`}>
+            <div id="mobile-nav" className={`${styles['mobile-nav-con']}${mobileNavOpen ? '' : ` ${styles['invisible']}`}`}>
                 <div className={styles['mobile-nav-wrapper']}>
                     <div>
                         <a href='/'><img src='/images/site_logo.png'></img></a>
-                        <button className={styles["close-button"]}>✕</button>
+                        <button className={styles["close-button"]} onClick={() => setMobileNavOpen(false)}>✕</button>
                         <nav>
                             <a href="#">Tech</a>
                             <a href="#">Projects</a>

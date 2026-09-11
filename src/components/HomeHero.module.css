@@ -1,12 +1,23 @@
-@media(max-width:835px){
-    body .home-hero .section-wrapper{
-        flex-wrap: wrap;
-    }
+@media(max-width:835px) {
+  body .home-hero .section-wrapper {
+    flex-wrap: wrap;
+  }
 
-    body .home-hero .section-wrapper > div{
-        width: 100%;
-    }
+  body .home-hero .section-wrapper>div {
+    width: 100%;
+  }
+
+  body .home-hero .hero-austin {
+    display: none;
+  }
 }
+
+@media(max-width:765px){
+  body .home-hero .section-wrapper{
+    padding: 60px 15px;
+  }
+}
+
 
 .home-hero {
   background: #1a1614;
@@ -29,7 +40,7 @@
 }
 
 
-.home-hero .section-wrapper > div {
+.home-hero .section-wrapper>div {
   width: 50%;
   min-width: 0;
 }
@@ -72,43 +83,43 @@
   flex-wrap: wrap;
 }
 
-.home-hero .button-flex > a{
-    border:solid 1px gray;
-    padding: 5px 15px;
-    border-radius: 99px;
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-    transition: .25s;
-    position: relative;
-    top: 0px;
+.home-hero .button-flex>a {
+  border: solid 1px gray;
+  padding: 5px 15px;
+  border-radius: 99px;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  transition: .25s;
+  position: relative;
+  top: 0px;
 }
 
-.home-hero .button-flex > a:hover{
-    top: -3px;
+.home-hero .button-flex>a:hover {
+  top: -3px;
 }
 
-.home-hero .button-flex .social-circle{
-    padding: 6px 7px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    transition: .25s;
+.home-hero .button-flex .social-circle {
+  padding: 6px 7px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: .25s;
 }
 
-.home-hero .button-flex .social-circle:hover{
-    background-color: rgba(255, 255, 255, 0.1);
+.home-hero .button-flex .social-circle:hover {
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
-.home-hero .button-flex > a svg{
-    fill: white;
-    height: 20px;
-    width: 100%;
+.home-hero .button-flex>a svg {
+  fill: white;
+  height: 20px;
+  width: 100%;
 }
 
-.home-hero .button-flex > a:first-of-type{
-    background: rgb(255 90 31);
-    border: solid 1px rgb(255 90 31);
+.home-hero .button-flex>a:first-of-type {
+  background: rgb(255 90 31);
+  border: solid 1px rgb(255 90 31);
 }
 
 .pretext:before {
@@ -122,7 +133,7 @@
 
 .home-hero h1 {
   color: white;
-  font-size: clamp(40px, 5vw, 46px);
+  font-size: clamp(32px, 5vw, 46px);
   line-height: 1;
   max-width: 625px;
   margin-top: 10px;

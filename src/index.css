@@ -11,14 +11,22 @@ body {
   font-family: "Inter", system-ui, sans-serif;
 }
 
+@media(max-width:765px){
+  body{
+    padding-top: 100px;
+  }
+}
+
 h1, h2, h3, h4 {
   font-family: "Sora", sans-serif;
   font-weight: 700;
+  line-height: 1.15;
 }
 
 h2{
   font-size: 36px;
   margin-bottom: 0px;
+
 }
 
 .orange-button {
