@@ -19,7 +19,7 @@
 }
 
 .site-header {
-  background: #26282e;
+  background: var(--color-ink-raised-alt);
   position: fixed;
   width: 100%;
   z-index: 99;
@@ -72,7 +72,7 @@
 }
 
 .site-header .nav-menu .orange-button{
-  background-color: #ff5a1f;
+  background-color: var(--color-orange);
   padding:5px 12.5px;
   border-radius: 99px;
   color: white;
@@ -80,7 +80,7 @@
 }
 
 .site-header .nav-menu .orange-button:hover{
-  background-color: #fc7e51;
+  background-color: var(--color-orange-hover);
 }
 
 .site-header .mobile-nav-con{
@@ -96,7 +96,7 @@
 .site-header .mobile-nav-con .mobile-nav-wrapper{
   width: 100%;
   max-width:350px;
-  background: rgb(26, 22, 20);;
+  background: var(--color-charcoal);;
   padding: 50px 30px;
   display: block;
   margin-left: auto;
@@ -136,7 +136,7 @@
   color: white;
   font-weight: bold;
   text-decoration: none;
-  border-bottom: solid 1px #413c3a;
+  border-bottom: solid 1px var(--color-charcoal-border);
   padding-bottom: 15px;
   font-size: 18px;
   transition:.15s;
@@ -148,7 +148,7 @@
 }
 
 .site-header .mobile-nav-con .mobile-nav-wrapper nav a:hover{
-  color: #f94a01;
+  color: var(--color-orange);
 }
 
 .site-header .mobile-nav-con  .mobile-socials{
@@ -162,7 +162,7 @@
   border: none;
   height: 30px;
   width: 30px;
-  border: solid 1px #413c3a;
+  border: solid 1px var(--color-charcoal-border);
   background: transparent;
   color: white;
   fill: white;
@@ -171,8 +171,8 @@
 }
 
 .site-header .mobile-nav-con  .mobile-socials button:hover{
-  border: solid 1px #f94a01;
-  fill:#f94a01;
+  border: solid 1px var(--color-orange);
+  fill:var(--color-orange);
 }
 
 .site-header .mobile-nav-con .mobile-resume-button{
@@ -187,7 +187,7 @@
 .site-header .mobile-nav-con .mobile-resume-button button{
   width: 100%;
   border-radius: 99px;
-  background: #f94a01;
+  background: var(--color-orange);
   border: none;
   height: 35px;
   color: white;
@@ -199,7 +199,7 @@
   right:10px;
   font-weight: bold;
   background: transparent;
-  border: solid 1px #413c3a;
+  border: solid 1px var(--color-charcoal-border);
   border-radius: 3px;
   padding: 5px;
   color: white;
@@ -211,8 +211,8 @@
 }
 
 .site-header .mobile-nav-con .mobile-nav-wrapper .close-button:hover{
-  color: #f94a01;
-  border: solid 1px #f94a01;
+  color: var(--color-orange);
+  border: solid 1px var(--color-orange);
 }
 
 .site-header .ham-menu-button{

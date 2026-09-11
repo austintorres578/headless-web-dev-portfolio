@@ -7,17 +7,17 @@
 
 
 .color-divider > div:nth-of-type(1){
-    background: #ff5a1f;
+    background: var(--color-orange);
 }
 
 .color-divider > div:nth-of-type(2){
-    background-color: rgb(250, 214, 95);
+    background-color: var(--color-strip-yellow);
 }
 
 .color-divider > div:nth-of-type(3){
-    background-color: rgb(69, 223, 146);
+    background-color: var(--color-strip-green);
 }
 
 .color-divider > div:nth-of-type(4){
-    background-color: rgb(70, 113, 255);
+    background-color: var(--color-strip-blue);
 }

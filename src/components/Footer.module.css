@@ -1,5 +1,5 @@
 footer{
-    background-color: rgb(18, 15, 13);
+    background-color: var(--color-charcoal-deep);
     padding: 30px;
     display: flex;
     flex-direction: column;

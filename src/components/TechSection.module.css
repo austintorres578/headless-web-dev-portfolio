@@ -54,7 +54,7 @@
 
 
 .tech-section .section-wrapper .generic-section-header .eyebrow {
-    color: #ff5a1f;
+    color: var(--color-orange);
     display: flex;
     align-items: center;
     font-weight: bold;
@@ -64,7 +64,7 @@
     content:"";
     height: 1.5px;
     width: 25px;
-    background-color:#ff5a1f;
+    background-color:var(--color-orange);
     margin-right: 10px;
 }
 

@@ -32,13 +32,13 @@
 
 .project-card:hover,
 .project-card:focus-visible {
-  box-shadow: 0 18px 40px rgba(20, 22, 28, 0.5);
+  box-shadow: 0 18px 40px rgba(var(--color-ink-shadow-rgb), 0.5);
   transform: translateY(-3px);
   outline: none;
 }
 
 .project-image {
-  background: #e7521b;
+  background: var(--color-orange-deep);
   background-image: url('../../public/images/project-placeholder-image.png');
   background-position: center;
   background-size: 225px;
@@ -56,7 +56,7 @@
 
 .project-image span {
   background: white;
-  color: rgb(255 90 31);
+  color: var(--color-orange);
   font-weight: 700;
   font-size: 11px;
   padding: 3px 9px;
@@ -95,7 +95,7 @@
 .project-content .cta {
   font-weight: 700;
   font-size: 13px;
-  border-bottom: 2px solid rgb(255 90 31);
+  border-bottom: 2px solid var(--color-orange);
   width: fit-content;
 }
 

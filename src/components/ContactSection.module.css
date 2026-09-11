@@ -15,7 +15,7 @@
 }
 
 .contact-section {
-    background: #1a1614;
+    background: var(--color-charcoal);
 }
 
 .contact-section .section-wrapper {
@@ -28,7 +28,7 @@
 }
 
 .contact-section .generic-section-header .eyebrow {
-    color: rgb(244 196 48);
+    color: var(--color-yellow);
     display: flex;
     align-items: center;
     text-transform: uppercase;
@@ -41,7 +41,7 @@
     height: 1px;
     width: 20px;
     display: block;
-    background-color: #ff5a1f;
+    background-color: var(--color-orange);
     margin-right: 10px;
 }
 
