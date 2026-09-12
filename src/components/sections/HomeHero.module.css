@@ -1,0 +1,151 @@
+@media(max-width:835px) {
+  body .home-hero .section-wrapper {
+    flex-wrap: wrap;
+  }
+
+  body .home-hero .section-wrapper>div {
+    width: 100%;
+  }
+
+  body .home-hero .hero-austin {
+    display: none;
+  }
+}
+
+@media(max-width:765px){
+  body .home-hero .section-wrapper{
+    padding: 60px 15px;
+  }
+}
+
+
+.home-hero {
+  background: var(--color-charcoal);
+  display: flex;
+  min-height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.home-hero .section-wrapper {
+  width: 100%;
+  max-width: 1260px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 30px;
+  gap: 30px;
+  display: flex;
+  align-items: center;
+}
+
+
+.home-hero .section-wrapper>div {
+  width: 50%;
+  min-width: 0;
+}
+
+/* .home-hero .hero-austin {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 100%;
+} */
+
+.home-hero .hero-austin img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.home-hero .section-wrapper {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.home-hero .pretext {
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+  color: var(--color-yellow);
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+.home-hero .button-flex {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.home-hero .button-flex>a {
+  border: solid 1px gray;
+  padding: 5px 15px;
+  border-radius: 99px;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  transition: .25s;
+  position: relative;
+  top: 0px;
+}
+
+.home-hero .button-flex>a:hover {
+  top: -3px;
+}
+
+.home-hero .button-flex .social-circle {
+  padding: 6px 7px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: .25s;
+}
+
+.home-hero .button-flex .social-circle:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.home-hero .button-flex>a svg {
+  fill: white;
+  height: 20px;
+  width: 100%;
+}
+
+.home-hero .button-flex>a:first-of-type {
+  background: var(--color-orange);
+  border: solid 1px var(--color-orange);
+}
+
+.pretext:before {
+  content: "";
+  height: 2px;
+  width: 20px;
+  display: block;
+  background-color: var(--color-orange);
+  margin-right: 10px;
+}
+
+.home-hero h1 {
+  color: white;
+  font-size: clamp(32px, 5vw, 46px);
+  line-height: 1;
+  max-width: 625px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.home-hero p {
+  color: #cbcfd8;
+  max-width: 550px;
+}
+
+.home-hero h1 strong {
+  color: var(--color-orange);
+}
