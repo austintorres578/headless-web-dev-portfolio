@@ -1,14 +1,18 @@
+import SectionHeader from './SectionHeader.jsx'
+
 import styles from './ContactSection.module.css'
 
 export default function ContactSection() {
     return (
         <section className={styles["contact-section"]}>
             <div className={styles["section-wrapper"]}>
-                <div className={styles['generic-section-header']}>
-                    <span className={styles['eyebrow']}>What can I do for you</span>
-                    <h2>Services built around what your business needs</h2>
-                    <p>Whether you need a brand-new site, more customers finding you online, or something more custom- here's how I can help.</p>
-                </div>
+                <SectionHeader
+                    className={styles['generic-section-header']}
+                    eyebrowClassName={styles['eyebrow']}
+                    eyebrow="What can I do for you"
+                    title="Services built around what your business needs"
+                    description="Whether you need a brand-new site, more customers finding you online, or something more custom- here's how I can help."
+                />
                 <form>
                     <div>
                         <label>Name

@@ -12,6 +12,12 @@
   }
 }
 
+@media(max-width:500px){
+  body .site-header .site-logo img{
+    height: 15px;
+  }
+}
+
 @media(max-width:400px){
   body .site-header .mobile-nav-con .mobile-nav-wrapper{
     max-width: 100%;
@@ -63,6 +69,9 @@
 
 .site-header .site-logo{
     height:20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 } 
 
 .site-header .site-logo img{
@@ -157,9 +166,8 @@
   gap: 15px;
 }
 
-.site-header .mobile-nav-con  .mobile-socials button{
+.site-header .mobile-nav-con  .mobile-socials a{
   border-radius: 99px;
-  border: none;
   height: 30px;
   width: 30px;
   border: solid 1px var(--color-charcoal-border);
@@ -168,9 +176,17 @@
   fill: white;
   transition:.15s;
   cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.site-header .mobile-nav-con  .mobile-socials button:hover{
+.site-header .mobile-nav-con  .mobile-socials a svg{
+  height: 16px;
+  width: 16px;
+}
+
+.site-header .mobile-nav-con  .mobile-socials a:hover{
   border: solid 1px var(--color-orange);
   fill:var(--color-orange);
 }
@@ -179,18 +195,19 @@
   margin-left: auto;
   margin-right: auto;
   width: 100%;
-  display: block;
   margin-bottom: 15px;
   cursor: pointer;
-}
-
-.site-header .mobile-nav-con .mobile-resume-button button{
-  width: 100%;
+  /* merged up from the removed `.mobile-resume-button button` rule */
   border-radius: 99px;
   background: var(--color-orange);
   border: none;
   height: 35px;
   color: white;
+  /* stands in for the <button>'s UA-default centering + no underline */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
 }
 
 .site-header .mobile-nav-con .mobile-nav-wrapper .close-button{

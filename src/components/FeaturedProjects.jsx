@@ -1,6 +1,7 @@
 import styles from '../components/FeaturedProjects.module.css'
 import ProjectCarousel from '../components/ProjectCarousel.jsx'
 import ProjectBento from './ProjectBento.jsx'
+import SectionHeader from './SectionHeader.jsx'
 
 // Placeholder content until these come from the CMS.
 // const placeholderProject = {
@@ -25,12 +26,14 @@ export default function FeaturedProjects() {
         <section className={styles["featured-project-section"]}>
             <div className={styles["section-wrapper"]}>
                 <div className={styles['header-wrapper']}>
-                    <div className={styles["generic-section-header"]}>
-                        <span className={styles["eyebrow"]}>Featured Work</span>
-                        <h2>Projects that solved a real problem</h2>
-                        <p>Each of these started as a business need, not a design brief. Here's what the site had to do - and what to make it happen.</p>
-                    </div>
-                    <a href='#'><button className='orange-button'>View All Projects</button></a>
+                    <SectionHeader
+                        className={styles["generic-section-header"]}
+                        eyebrowClassName={styles["eyebrow"]}
+                        eyebrow="Featured Work"
+                        title="Projects that solved a real problem"
+                        description="Each of these started as a business need, not a design brief. Here's what the site had to do - and what to make it happen."
+                    />
+                    <a href='#' className='orange-button'>View All Projects</a>
                 </div>
                 {/* <ProjectCarousel projects={projects} /> */}
                 <ProjectBento />

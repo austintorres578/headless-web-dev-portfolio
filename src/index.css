@@ -50,6 +50,10 @@ body {
   body{
     padding-top: 100px;
   }
+
+  body h2{
+    font-size: 30px;
+  }
 }
 
 h1, h2, h3, h4 {

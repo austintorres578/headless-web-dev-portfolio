@@ -18,6 +18,7 @@ import {
 import { TbDeviceGamepad2 } from 'react-icons/tb'
 
 import BadgeTicker from './BadgeTicker'
+import SectionHeader from './SectionHeader.jsx'
 import TerminalWindow from './TerminalWindow'
 
 import styles from './TechSection.module.css'
@@ -60,10 +61,12 @@ export default function AboutSection() {
         <section className={styles['tech-section']}>
             <div className={styles['section-wrapper']}>
                 <div>
-                    <div className={styles['generic-section-header']}>
-                        <span className={styles['eyebrow']}>TECH & TOOLS</span>
-                        <h2>The tools behind my work</h2>
-                    </div>
+                    <SectionHeader
+                        className={styles['generic-section-header']}
+                        eyebrowClassName={styles['eyebrow']}
+                        eyebrow="TECH & TOOLS"
+                        title="The tools behind my work"
+                    />
                     <div className='copy-section'>
                         <p>I'm a front-end developer with 3+ years of paid experience shipping production WordPress sites, now focused on React and TypeScript. My strongest work combines full-stack engineering with practical AI integration, like a game library tool that uses Gemini to auto-import a user's collection from a photo, cross-checked against a live game database to catch errors before they happen.</p>
                     </div>
