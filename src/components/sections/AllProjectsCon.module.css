@@ -3,20 +3,22 @@
     max-width: 1260px;
     margin-left: auto;
     margin-right: auto;
+    box-sizing: border-box;
 }
 
 .all-projects-con .project-filter-pills {
-    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
     position: sticky;
     justify-content: flex-start;
 }
 
-.all-projects-con .project-filter-pills-wrapper{
+.all-projects-con .project-filter-pills-wrapper {
     max-width: 1260px;
     margin-left: auto;
     margin-right: auto;
     width: 100%;
     display: flex;
+    flex-wrap:wrap;
     gap: 15px;
     padding: 30px;
 }
@@ -32,11 +34,118 @@
     transition: .15s;
 }
 
-.all-projects-con .project-filter-pills button:hover{
+.all-projects-con .project-filter-pills button:hover {
     border: solid 1px var(--color-orange);
 }
 
-.all-projects-con .project-filter-pills .active{
+.all-projects-con .project-filter-pills .active {
     background-color: var(--color-orange);
     color: white;
+}
+
+.all-projects-con .project-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.all-projects-con .project-pagination>div {
+    display: flex;
+    gap: 10px;
+}
+
+.all-projects-con .project-pagination > button{
+    height: 40px;
+    width: 40px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    background: var(--color-bone);
+    border-radius: 5px;
+    cursor: pointer;
+    transition:.25s;
+    font-size: 20px;
+}
+
+.all-projects-con .project-pagination > button:hover{
+    border: solid 1px var(--color-orange);
+}
+
+.all-projects-con .project-pagination .unclickable{
+    opacity: .5;
+    pointer-events: none;
+}
+
+.all-projects-con .project-pagination>div p {
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    background: var(--color-bone);
+    height: 40px;
+    width: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: .25s;
+}
+
+.all-projects-con .project-pagination>div .active{
+    background: var(--color-orange);
+    color: white;
+}
+
+.all-projects-con .project-pagination>div p:hover{
+    border: solid 1px var(--color-orange);
+}
+
+/* The collapsed-run marker is a label, not a page button: drop the chip
+   border, background and pointer so it can't be mistaken for something
+   clickable. Overrides the generic `>div p` rules above. */
+.all-projects-con .project-pagination>div .page-ellipsis,
+.all-projects-con .project-pagination>div .page-ellipsis:hover {
+    border: none;
+    background: transparent;
+    cursor: default;
+    width: auto;
+    align-items: center;
+    color: black;
+    letter-spacing: 2px;
+}
+
+.all-projects-con .project-pagination>div .last-page {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+/* .all-projects-con .project-pagination> div .last-page:before {
+    content: '...';
+    position: absolute;
+    left: -25px;
+    border: none;
+    background: transparent;
+} */
+
+/* fr tracks, not percentages: fr is resolved after the gaps are subtracted
+   from the available space, so the columns can never add up to more than the
+   container the way `33.3% * 3 + 60px of gap` did. */
+.all-projects-con .projects-con{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+@media (max-width: 900px) {
+    .all-projects-con .projects-con {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .all-projects-con .projects-con {
+        grid-template-columns: 1fr;
+    }
 }
