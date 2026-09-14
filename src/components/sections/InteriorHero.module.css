@@ -1,5 +1,9 @@
 .interior-hero{
     background: var(--color-charcoal);
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .interior-hero .section-wrapper{
@@ -8,6 +12,7 @@
     margin-left: auto;
     margin-right: auto;
     padding: 30px;
+    width: 100%;
 }
 
 .interior-hero .section-wrapper .back-home{
@@ -16,6 +21,10 @@
     display: flex;
     align-items: center;
     gap: 5px;
+}
+
+.interior-hero .section-wrapper .back-home:hover{
+    color: white;
 }
 
 .interior-hero .section-wrapper .back-home::before{

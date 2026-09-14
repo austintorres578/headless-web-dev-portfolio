@@ -1,0 +1,42 @@
+.all-projects-con .section-wrapper {
+    padding: 30px;
+    max-width: 1260px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.all-projects-con .project-filter-pills {
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+    position: sticky;
+    justify-content: flex-start;
+}
+
+.all-projects-con .project-filter-pills-wrapper{
+    max-width: 1260px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    display: flex;
+    gap: 15px;
+    padding: 30px;
+}
+
+.all-projects-con .project-filter-pills button {
+    padding: 10px 15px;
+    border-radius: 99px;
+    border: none;
+    background: var(--color-bone);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    font-weight: bold;
+    cursor: pointer;
+    transition: .15s;
+}
+
+.all-projects-con .project-filter-pills button:hover{
+    border: solid 1px var(--color-orange);
+}
+
+.all-projects-con .project-filter-pills .active{
+    background-color: var(--color-orange);
+    color: white;
+}
