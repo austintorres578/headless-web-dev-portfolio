@@ -1,9 +1,9 @@
+import InteriorHero from "../components/sections/InteriorHero"
+
 export default function Projects(){
     return (
         <>
-            <section>
-
-            </section>
+            <InteriorHero></InteriorHero>
         </>
     )
 }

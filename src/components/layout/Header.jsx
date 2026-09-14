@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 import styles from "./Header.module.css";
 
@@ -28,7 +29,7 @@ export default function Header() {
               <a href="/">Tech</a>
             </li>
             <li>
-              <a href="/">Projects</a>
+              <Link to="/projects">Projects</Link>
             </li>
             <li>
               <a href="/contact">Contact</a>
@@ -63,9 +64,13 @@ export default function Header() {
             >
               ✕
             </button>
-            <nav>
+            <nav
+              onClick={(e) => {
+                if (e.target.closest("a")) setMobileNavOpen(false);
+              }}
+            >
               <a href="#">Tech</a>
-              <a href="#">Projects</a>
+              <Link to="/projects">Projects</Link>
               <a href="#">Contact</a>
               <a href="#">Resume</a>
             </nav>
