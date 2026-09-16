@@ -1,0 +1,91 @@
+.indiv-project-page-container{
+    background:var(--color-bone)
+}
+
+.project-screenshot-container .section-wrapper {
+  padding: 30px;
+  max-width: 1260px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.project-screenshot-container .section-wrapper img {
+  width: 100%;
+  border-radius: 15px;
+  object-fit: contain;
+  box-shadow: 0 24px 50px rgba(20, 22, 28, 0.3);
+}
+
+.problem-section .section-wrapper {
+  padding: 30px;
+  max-width: 1260px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.problem-section .section-wrapper p {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #14161c;
+}
+
+.solution-section .section-wrapper {
+  padding: 30px;
+  max-width: 1260px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.solution-section .section-wrapper p {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #14161c;
+}
+
+.indiv-project-section-header .eyebrow {
+  font-size: 14px;
+  font-weight: 600;
+  color: #ff6b6b;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+.indiv-project-section-header .eyebrow h2 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #14161c;
+  margin-bottom: 10px;
+}
+
+.tech-stack-section .section-wrapper {
+  padding: 30px;
+  max-width: 1260px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.tech-stack-section .section-wrapper .tech-stack-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 30px;
+  gap:15px;
+}
+
+.tech-stack-section .section-wrapper .tech-stack-grid > div {
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 12px;
+  padding: 16px 18px;
+}
+
+.tech-stack-section .section-wrapper .tech-stack-grid > div span{
+    font-weight:bold
+}
+
+.results-section .section-wrapper {
+  padding: 30px;
+  max-width: 1260px;
+  margin-left: auto;
+  margin-right: auto;
+}
