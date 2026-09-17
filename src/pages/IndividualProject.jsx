@@ -1,4 +1,8 @@
+import { Link } from "react-router-dom";
+
 import styles from "./IndividualProject.module.css";
+
+import ColorDiv from '../components/layout/ColorDiv'
 
 import ProjectHero from "../components/sections/ProjectHero";
 import projectPlaceholder from "../assets/projectPlaceholder.jpeg";
@@ -89,17 +93,31 @@ export default function IndividualProject() {
           </div>
         </section>
         <section className={styles["results-section"]}>
-            <div className={styles["section-wrapper"]}>
-                <div className={styles["indiv-project-section-header"]}>
-                    <span className={styles["eyebrow"]}>Results</span>
-                    <h2>What I Achieved</h2>
-                </div>
-                <p>
-                    The pipeline reduced the time needed to import a game collection from 20+ minutes to under a minute, while maintaining high accuracy through the verification step.
-                </p>
+          <div className={styles["section-wrapper"]}>
+            <div className={styles["indiv-project-section-header"]}>
+              <span className={styles["eyebrow"]}>Results</span>
+              <h2>What I Achieved</h2>
             </div>
+            <div className={styles["solution-box"]}>
+              <ul>
+                <li>Reduced average library setup time from ~20 minutes of manual entry to under 60 seconds</li>
+                <li>Moved API keys out of client-side code into backend proxy routes, closing an exposed-key issue found during development</li>
+                <li>Cross-verification step catches roughly 1 in 8 Gemini misreads before they reach the user's saved library</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+        <section className={styles["indiv-project-nav"]}>
+          <div className={styles["section-wrapper"]}>
+            <div>
+              <span>Next Project</span>
+              <Link to="#">Soylent Clone </Link>
+            </div>
+            <Link to="#" className={styles["project-button"]}>All Projects</Link>
+          </div>
         </section>
       </div>
+      <ColorDiv />
     </>
   );
 }
