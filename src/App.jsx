@@ -3,6 +3,7 @@ import Layout from './components/layout/Layout'
 import Home from './pages/Home'
 import Projects from './pages/Projects'
 import IndividualProject from './pages/IndividualProject'
+import Contact from './pages/Contact'
 
 import './App.css'
 
@@ -14,6 +15,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/projects" element={<Projects />} />
           <Route path='/projects/projectName' element={<IndividualProject/>}></Route>
+          <Route path='/contact' element={<Contact></Contact>}></Route>
         </Route>
       </Routes>
     </BrowserRouter>

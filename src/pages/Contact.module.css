@@ -1,0 +1,156 @@
+.contact-hero {
+    background-color: var(--color-charcoal)
+}
+
+.contact-hero .section-wrapper {
+    max-width: 1260px;
+    padding: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-section .section-wrapper {
+    display: flex;
+    max-width: 1260px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 50px 30px;
+    gap: 30px;
+}
+
+.contact-section .section-wrapper>div {
+    width: 50%;
+}
+
+.contact-section .section-wrapper .contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.contact-section .section-wrapper .contact-details span {
+    font-weight: bold;
+    margin-bottom: 10px;
+    margin-top: 30px;
+}
+
+.contact-section .section-wrapper .contact-details .details-sub {
+    background: rgb(247, 244, 239);
+    padding: 18px;
+    border-radius: 0 10px 10px 0;
+    font-size: 14px;
+    color: black;
+    border-left: solid 3px var(--color-teal);
+    margin-top: 30px;
+}
+
+.contact-section .section-wrapper .contact-details .details-sub p {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.contact-section .section-wrapper .contact-details a {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    padding-bottom: 10px;
+    text-decoration: none;
+    color: black;
+    display: flex;
+    align-items: center;
+    transition: .25s;
+}
+
+.contact-section .section-wrapper .contact-details a:hover{
+    color:var(--color-orange);
+}
+
+.contact-section .section-wrapper .contact-details a:before {
+    content: "";
+    display: block;
+    height: 30px;
+    width: 30px;
+    border-radius: 99px;
+    border: solid 1px black;
+    margin-right: 10px;
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.contact-section .section-wrapper .contact-details .email:before {
+    background: url('../assets/icons/email.svg');
+}
+
+.contact-section .section-wrapper .contact-details .phone:before {
+    background: url('../assets/icons/phone.svg');
+}
+
+.contact-section .section-wrapper .contact-details .resume:before {
+    background: url('../assets/icons/resume.svg');
+}
+
+.contact-section .section-wrapper .contact-details .github:before{
+    background: url('../assets/icons/github.svg');
+}
+
+.contact-section .section-wrapper .contact-details .linkedin:before{
+    background: url('../assets/icons/linkedin.svg');
+}
+
+
+.contact-section .section-wrapper .contact-form-con {
+    border-radius: 10px;
+    background: var(--color-bone);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.contact-section .section-wrapper .contact-form-con form {
+    height: 100%;
+    padding: 20px;
+}
+
+.contact-section .section-wrapper .contact-form-con form>div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.contact-section .section-wrapper .contact-form-con form>div label {
+    display: flex;
+    flex-direction: column;
+    height: 66px;
+}
+
+.contact-section .section-wrapper .contact-form-con form>label {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.contact-section .section-wrapper .contact-form-con form input {
+    margin-top: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 12px 14px;
+    border-radius: 5px;
+}
+
+.contact-section .section-wrapper .contact-form-con form textarea {
+    margin-top: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 12px 14px;
+    border-radius: 5px;
+    min-height: 165px;
+}
+
+.contact-section .section-wrapper .contact-form-con form button {
+    margin-top: 20px;
+    border-radius: 99px;
+    border: none;
+    width: 100%;
+    background: var(--color-orange);
+    padding: 13px 22px;
+    color: white;
+    font-weight: bold;
+}
