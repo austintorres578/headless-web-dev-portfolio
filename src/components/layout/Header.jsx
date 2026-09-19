@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import styles from "./Header.module.css";
 
 import siteLogo from "../../../public/images/site_logo.png";
-import SocialLinks from "../ui/SocialLinks.jsx";
+import SocialLinks from "../ui/SocialLinks";
 
 export default function Header() {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);

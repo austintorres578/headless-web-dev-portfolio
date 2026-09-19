@@ -1,4 +1,10 @@
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
+
+import emailIcon from '../assets/icons/email.svg'
+import phoneIcon from '../assets/icons/phone.svg'
+import linkedinIcon from '../assets/icons/linkedin.svg'
+import githubIcon from '../assets/icons/github.svg'
+import resumeIcon from '../assets/icons/resume.svg'
 
 import styles from './Contact.module.css'
 
@@ -18,12 +24,16 @@ export default function Contact() {
                 <div className={styles['section-wrapper']}>
                     <div className={styles["contact-details"]}>
                         <span>Direct</span>
-                        <a className={styles['email']} href="mailto:austintorres578@outlook.com">austintorres578@outlook.com</a>
-                        <a className={styles["phone"]} href="tel:9088758077">(908) 875-8077</a>
+                        <ul>
+                            <li><img src={emailIcon}></img><a className={styles['email']} href="mailto:austintorres578@outlook.com">austintorres578@outlook.com</a></li>
+                            <li><img src={phoneIcon}></img><a className={styles["phone"]} href="tel:9088758077">(908) 875-8077</a></li>
+                        </ul>
                         <span>Elsewhere</span>
-                        <a className={styles['linkedin']} href="#">LinkedIn</a>
-                        <a href='#' className={styles['github']}>GitHub</a>
-                        <a href="#" className={styles['resume']}>Download Resume</a>
+                        <ul>
+                            <li><img src={linkedinIcon}></img><a className={styles['linkedin']} href="#">LinkedIn</a></li>
+                            <li><img src={githubIcon}></img><a href='#' className={styles['github']}>GitHub</a></li>
+                            <li><img src={resumeIcon}></img><a href="#" className={styles['resume']}>Download Resume</a></li>
+                        </ul>
                         <div className={styles['details-sub']}>
                             <p>I typically respond within 1–2 business days. For time-sensitive opportunities, email is fastest.</p>
                         </div>
