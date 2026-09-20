@@ -113,7 +113,7 @@ export default function IndividualProject() {
               <span>Next Project</span>
               <Link to="#">Soylent Clone </Link>
             </div>
-            <Link to="#" className={styles["project-button"]}>All Projects</Link>
+            <Link to="/projects" className={styles["project-button"]}>All Projects</Link>
           </div>
         </section>
       </div>
