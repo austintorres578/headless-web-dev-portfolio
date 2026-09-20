@@ -14,6 +14,18 @@
     }
 }
 
+@media(max-width:465px){
+    body .contact-section form > div label{
+        width: 100%;
+    }
+
+    body .contact-section form > div{
+        display:flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
 .contact-section {
     background: var(--color-charcoal);
 }

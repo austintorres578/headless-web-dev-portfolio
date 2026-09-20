@@ -58,7 +58,7 @@ const TECH_BADGES = [
 
 export default function AboutSection() {
     return (
-        <section className={styles['tech-section']}>
+        <section id="tech" className={styles['tech-section']}>
             <div className={styles['section-wrapper']}>
                 <div>
                     <SectionHeader

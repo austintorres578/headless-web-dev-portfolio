@@ -22,10 +22,10 @@ export default function HomeHero() {
             look good, they get found and convert.
           </p>
           <div className={styles["button-flex"]}>
-            <Link to="/" className={styles["orange-button"]}>
+            <Link to="/projects" className={styles["orange-button"]}>
               See My Work
             </Link>
-            <Link to="/" className={styles["transparent-button"]}>
+            <Link to="/contact" className={styles["transparent-button"]}>
               Start A Project
             </Link>
 

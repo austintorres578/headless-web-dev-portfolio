@@ -1,3 +1,5 @@
+import {Link} from 'react-router-dom'
+
 import styles from './FeaturedProjects.module.css'
 import ProjectCarousel from '../ui/ProjectCarousel.jsx'
 import ProjectBento from '../ui/ProjectBento.jsx'
@@ -33,7 +35,7 @@ export default function FeaturedProjects() {
                         title="Projects that solved a real problem"
                         description="Each of these started as a business need, not a design brief. Here's what the site had to do - and what to make it happen."
                     />
-                    <a href='#' className='orange-button'>View All Projects</a>
+                    <Link to="/projects" className='orange-button'>View All Projects</Link>
                 </div>
                 {/* <ProjectCarousel projects={projects} /> */}
                 <ProjectBento />

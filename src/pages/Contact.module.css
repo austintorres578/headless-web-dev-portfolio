@@ -8,9 +8,23 @@
     }
 }
 
+@media(max-width:550px){
+    body .contact-section .section-wrapper .contact-form-con form>div{
+        grid-template-columns: 1fr;
+    }
+}
+
 .contact-hero {
     background-color: var(--color-charcoal);
     min-height: 400px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    width:100%;
+}
+
+.contact-hero .section-wrapper{
+    width:100%;
 }
 
 .contact-hero .section-wrapper .back-home {

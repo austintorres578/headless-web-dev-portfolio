@@ -26,17 +26,17 @@ export default function Header() {
         <nav className={styles["main-navigation"]} aria-label="Primary">
           <ul id="primary-menu" className={styles["nav-menu"]}>
             <li>
-              <a href="/">Tech</a>
+              <Link to="/#tech">Tech</Link>
             </li>
             <li>
               <Link to="/projects">Projects</Link>
             </li>
             <li>
-              <a href="/contact">Contact</a>
+              <Link to="/contact">Contact</Link>
             </li>
-            <li>
+            {/* <li>
               <a href="/projects/projectName">Indiv Project</a>
-            </li>
+            </li> */}
           </ul>
         </nav>
 
@@ -72,10 +72,9 @@ export default function Header() {
                 if (e.target.closest("a")) setMobileNavOpen(false);
               }}
             >
-              <a href="#">Tech</a>
+              <Link to="/#tech">Tech</Link>
               <Link to="/projects">Projects</Link>
-              <a href="#">Contact</a>
-              <a href="#">Resume</a>
+              <Link to="/contact">Contact</Link>
             </nav>
           </div>
           <div>

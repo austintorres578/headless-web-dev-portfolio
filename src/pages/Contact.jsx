@@ -17,7 +17,6 @@ export default function Contact() {
                     <span className={styles["eyebrow"]}>GET IN TOUCH</span>
                     <h1>Let's talk about an opportunity</h1>
                     <p>Open to front-end and React roles — reach out and I'll get back to you quickly.</p>
-                    <span>Currently employed, open to new roles</span>
                 </div>
             </section>
             <section className={styles['contact-section']}>
