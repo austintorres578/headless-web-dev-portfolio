@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import ProjectCard from '../ui/ProjectCard'
 
 import styles from './AllProjectsCon.module.css'
@@ -336,6 +336,15 @@ function getPageNumbers(currentPage, totalPages) {
 export default function AllProjectsCon() {
     const [activeFilterId, setActiveFilterId] = useState('all')
     const [currentPage, setCurrentPage] = useState(1)
+
+    // Temporary debug step: confirm the WP REST endpoint responds and see
+    // the shape of what it returns. Logs only — no state, no rendering.
+    useEffect(() => {
+        fetch('https://cms.austinwebworks.dev/wp-json/wp/v2/project')
+            .then((response) => response.json())
+            .then((data) => console.log('WP projects:', data))
+            .catch((error) => console.error('WP fetch failed:', error))
+    }, [])
 
     const activeFilter = FILTERS.find((filter) => filter.id === activeFilterId)
     const filteredProjects = PROJECTS.filter(activeFilter.match)
