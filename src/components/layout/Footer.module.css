@@ -1,4 +1,4 @@
-footer{
+.footer-con{
     background-color: var(--color-charcoal-deep);
     padding: 30px;
     display: flex;
@@ -7,32 +7,32 @@ footer{
     min-height: 200px;
 }
 
-footer > a{
+.footer-con > a{
     width: fit-content;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 15px;
 }
 
-footer > a img{
+.footer-con > a img{
     height: 20px;
     width: auto;
     object-fit: contain;
 }
 
-footer div{
+.footer-con div{
     margin-left: auto;
     margin-right: auto;
     display: flex;
     gap: 15px;
 }
 
-footer div a{
+.footer-con div a{
     text-decoration: none;
     color: white;
 }
 
-footer > p{
+.footer-con > p{
     text-align: center;
     color: gray;
 }
