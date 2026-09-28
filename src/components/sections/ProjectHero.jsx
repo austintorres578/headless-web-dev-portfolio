@@ -2,38 +2,58 @@ import { Link } from "react-router-dom";
 
 import styles from "./ProjectHero.module.css";
 
-export default function ProjectHero() {
+export default function ProjectHero({
+  title,
+  subtitle,
+  eyebrow = [],
+  tags = [],
+  liveSiteUrl,
+  githubUrl,
+}) {
+  const hasCtas = Boolean(liveSiteUrl) || Boolean(githubUrl);
+
   return (
     <section className={styles["project-hero"]}>
       <div className={styles["section-wrapper"]}>
         <Link to="/" className={styles["back-home"]}>
           Back to home
         </Link>
-        <div className={styles["tags"]}>
-            <span>All Projects</span>
-            <span>All Projects</span>
-            <span>All Projects</span>
-            <span>All Projects</span>
-        </div>
-        <h1>Game Database</h1>
-        <p>
-          A complete list of client work, tools, and side projects — filter by
-          what you're looking for.
-        </p>
-        <div className={styles["project-categories"]}>
-          <span>React</span>
-          <span>Firebase</span>
-          <span>Gemini API</span>
-          <span>RAWG API</span>
-        </div>
-        <div className={styles["project-ctas"]}>
-          <a href="#" className={styles["site"]}>
-            View Live Site →
-          </a>
-          <a href="#" className={styles["github"]}>
-            View on Github
-          </a>
-        </div>
+        {eyebrow.length > 0 && (
+          <div className={styles["tags"]}>
+            {eyebrow.map((item) => <span key={item}>{item}</span>)}
+          </div>
+        )}
+        <h1>{title}</h1>
+        {subtitle && <p>{subtitle}</p>}
+        {tags.length > 0 && (
+          <div className={styles["project-categories"]}>
+            {tags.map((tag) => <span key={tag}>{tag}</span>)}
+          </div>
+        )}
+        {hasCtas && (
+          <div className={styles["project-ctas"]}>
+            {liveSiteUrl && (
+              <a
+                href={liveSiteUrl}
+                className={styles["site"]}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View Live Site →
+              </a>
+            )}
+            {githubUrl && (
+              <a
+                href={githubUrl}
+                className={styles["github"]}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View on Github
+              </a>
+            )}
+          </div>
+        )}
       </div>
     </section>
   );

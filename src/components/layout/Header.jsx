@@ -34,9 +34,6 @@ export default function Header() {
             <li>
               <Link to="/contact">Contact</Link>
             </li>
-            <li>
-              <Link to="/projects/projectName">Indiv Project</Link>
-            </li>
           </ul>
         </nav>
 
