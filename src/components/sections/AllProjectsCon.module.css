@@ -18,9 +18,28 @@
     margin-right: auto;
     width: 100%;
     display: flex;
-    flex-wrap:wrap;
+    flex-direction: column;
     gap: 15px;
     padding: 30px;
+}
+
+.all-projects-con .project-filter-pills-wrapper > div{
+    display:flex;
+    flex-direction: column;
+}
+
+.all-projects-con .project-filter-pills-wrapper > div span{
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color:var(--color-orange);
+}
+
+.all-projects-con .project-filter-pills-wrapper > div div{
+    display:flex;
+    gap:15px;
+    flex-wrap: wrap;
+    margin-top: 15px;
 }
 
 .all-projects-con .project-filter-pills button {
@@ -154,4 +173,44 @@
     .all-projects-con .projects-con {
         grid-template-columns: 1fr;
     }
+}
+
+
+.all-projects-con .mobile-filter-trigger-con .mobile-filters-top{
+    display:flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.all-projects-con .mobile-filter-trigger-con .mobile-filter-trigger-wrapper{
+    max-width:1260px;
+    margin-left:auto;
+    margin-right:auto;
+    padding:30px;
+}
+
+.all-projects-con .mobile-filter-trigger-con .mobile-filters-bottom{
+    display:flex;
+    gap:15px;
+}
+
+.all-projects-con .hidden-mobile-filter-con{
+    top:0px;
+    background-color: rgba(0, 0, 0, 0.50);
+    position:fixed;
+    height:100vh;
+    width:100vw;
+    z-index:0;
+}
+
+.all-projects-con .hidden-mobile-filter-con .hidden-mobile-filter{
+    position: absolute;
+    height: 50px;
+    width: 100%;
+    max-width: 400px;
+    transform: translate(-50%, -50%);
+    top: 100%;
+    left: 50%;
+    background-color:white;
+    border-radius: 15px;
 }
