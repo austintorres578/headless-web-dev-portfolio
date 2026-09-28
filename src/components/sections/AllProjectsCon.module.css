@@ -138,6 +138,12 @@
     margin-bottom: 30px;
 }
 
+/* Fixed image height on the projects grid so it doesn't vary with how
+   many lines of text each card has. */
+.all-projects-con .projects-con > a > div:first-child {
+    flex: 0 0 200px;
+}
+
 @media (max-width: 900px) {
     .all-projects-con .projects-con {
         grid-template-columns: repeat(2, 1fr);

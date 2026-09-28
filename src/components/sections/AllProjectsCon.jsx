@@ -56,7 +56,7 @@ export default function AllProjectsCon() {
             })
 
         Promise.all([
-            fetchJson('/project?per_page=100'),
+            fetchJson('/project?per_page=100&_embed'),
             fetchJson('/tags?per_page=100'),
             fetchJson('/categories?per_page=100'),
         ])
@@ -76,6 +76,26 @@ export default function AllProjectsCon() {
                         : ''
                     const order = parseInt(acf.display_order, 10)
 
+                    // Resolve featured image in priority order:
+                    //  1. WP featured media medium_large size (via _embed)
+                    //  2. WP featured media full source_url (via _embed)
+                    //  3. ACF gallery — only if it is a real URL (starts with
+                    //     http:// or https://) or an object with a .url string
+                    //  4. '' — no image; card shows the CSS placeholder logo
+                    const embeddedMedia = post?._embedded?.['wp:featuredmedia']?.[0]
+                    const galleryField = acf.gallery
+                    const galleryUrl =
+                        typeof galleryField === 'string' && /^https?:\/\//.test(galleryField)
+                            ? galleryField
+                            : galleryField && typeof galleryField === 'object' && galleryField.url
+                                ? galleryField.url
+                                : ''
+                    const featuredImage =
+                        embeddedMedia?.media_details?.sizes?.medium_large?.source_url ||
+                        embeddedMedia?.source_url ||
+                        galleryUrl ||
+                        ''
+
                     return {
                         id: post.id,
                         href: `/projects/${post.slug}`,
@@ -86,6 +106,7 @@ export default function AllProjectsCon() {
                         meta,
                         title: decodeHtml(post.title?.rendered),
                         description: acf.subtitletag_line || '',
+                        featuredImage,
                         // Blank display_order parses to NaN; sort those last.
                         order: Number.isNaN(order) ? Infinity : order,
                     }
