@@ -1,3 +1,13 @@
+@media(max-width:765px){
+    body .all-projects-con .project-filter-pills-wrapper{
+        display: none;
+    }
+
+    body .all-projects-con .mobile-filter-trigger-con .mobile-filter-trigger-wrapper{
+        display: flex;
+    }
+}
+
 .all-projects-con .section-wrapper {
     padding: 30px;
     max-width: 1260px;
@@ -23,21 +33,21 @@
     padding: 30px;
 }
 
-.all-projects-con .project-filter-pills-wrapper > div{
-    display:flex;
+.all-projects-con .project-filter-pills-wrapper>div {
+    display: flex;
     flex-direction: column;
 }
 
-.all-projects-con .project-filter-pills-wrapper > div span{
+.all-projects-con .project-filter-pills-wrapper>div span {
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 1px;
-    color:var(--color-orange);
+    color: var(--color-orange);
 }
 
-.all-projects-con .project-filter-pills-wrapper > div div{
-    display:flex;
-    gap:15px;
+.all-projects-con .project-filter-pills-wrapper>div div {
+    display: flex;
+    gap: 15px;
     flex-wrap: wrap;
     margin-top: 15px;
 }
@@ -51,6 +61,8 @@
     font-weight: bold;
     cursor: pointer;
     transition: .15s;
+    display: flex;
+    align-items: center;
 }
 
 .all-projects-con .project-filter-pills button:hover {
@@ -74,22 +86,22 @@
     gap: 10px;
 }
 
-.all-projects-con .project-pagination > button{
+.all-projects-con .project-pagination>button {
     height: 40px;
     width: 40px;
     border: 1px solid rgba(0, 0, 0, 0.08);
     background: var(--color-bone);
     border-radius: 5px;
     cursor: pointer;
-    transition:.25s;
+    transition: .25s;
     font-size: 20px;
 }
 
-.all-projects-con .project-pagination > button:hover{
+.all-projects-con .project-pagination>button:hover {
     border: solid 1px var(--color-orange);
 }
 
-.all-projects-con .project-pagination .unclickable{
+.all-projects-con .project-pagination .unclickable {
     opacity: .5;
     pointer-events: none;
 }
@@ -110,12 +122,12 @@
     transition: .25s;
 }
 
-.all-projects-con .project-pagination>div .active{
+.all-projects-con .project-pagination>div .active {
     background: var(--color-orange);
     color: white;
 }
 
-.all-projects-con .project-pagination>div p:hover{
+.all-projects-con .project-pagination>div p:hover {
     border: solid 1px var(--color-orange);
 }
 
@@ -150,7 +162,7 @@
 /* fr tracks, not percentages: fr is resolved after the gaps are subtracted
    from the available space, so the columns can never add up to more than the
    container the way `33.3% * 3 + 60px of gap` did. */
-.all-projects-con .projects-con{
+.all-projects-con .projects-con {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
@@ -159,7 +171,7 @@
 
 /* Fixed image height on the projects grid so it doesn't vary with how
    many lines of text each card has. */
-.all-projects-con .projects-con > a > div:first-child {
+.all-projects-con .projects-con>a>div:first-child {
     flex: 0 0 200px;
 }
 
@@ -176,41 +188,164 @@
 }
 
 
-.all-projects-con .mobile-filter-trigger-con .mobile-filters-top{
-    display:flex;
+
+.all-projects-con .mobile-filter-trigger-con .mobile-filters-top {
+    display: flex;
     justify-content: space-between;
     margin-bottom: 15px;
+    width: 100%;
 }
 
-.all-projects-con .mobile-filter-trigger-con .mobile-filter-trigger-wrapper{
-    max-width:1260px;
-    margin-left:auto;
-    margin-right:auto;
-    padding:30px;
+
+.all-projects-con .mobile-filter-trigger-con .mobile-filter-trigger-wrapper {
+    max-width: 1260px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 30px;
+    display: none;
 }
 
-.all-projects-con .mobile-filter-trigger-con .mobile-filters-bottom{
-    display:flex;
-    gap:15px;
+.all-projects-con .mobile-filter-trigger-con .mobile-filters-bottom {
+    display: flex;
+    gap: 15px;
 }
 
-.all-projects-con .hidden-mobile-filter-con{
-    top:0px;
+.all-projects-con .hidden-mobile-filter-con {
+    top: 0px;
     background-color: rgba(0, 0, 0, 0.50);
-    position:fixed;
-    height:100vh;
-    width:100vw;
-    z-index:0;
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
 }
 
-.all-projects-con .hidden-mobile-filter-con .hidden-mobile-filter{
-    position: absolute;
-    height: 50px;
+.all-projects-con .hidden-mobile-filter-con.invisible {
+    transition: .25s;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.all-projects-con .hidden-mobile-filter-con.invisible .hidden-mobile-filter{
+    top: 100%;
+}
+
+.all-projects-con .hidden-mobile-filter-con .hidden-mobile-filter {
+    position: relative;
     width: 100%;
     max-width: 400px;
-    transform: translate(-50%, -50%);
-    top: 100%;
-    left: 50%;
-    background-color:white;
-    border-radius: 15px;
+    /* transform: translate(-50%, -50%); */
+    /* top: 90%;
+    left: 50%; */
+    background-color: white;
+    border-radius: 15px 15px 0px 0px;
+    padding: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    top: 0%;
+    transition: .25s;
+}
+
+.all-projects-con .hidden-mobile-filter-con .hidden-mobile-filter .hidden-mobile-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: solid 1px black;
+    padding-bottom: 10px;
+}
+
+.all-projects-con .hidden-mobile-filter-con .hidden-mobile-filter .hidden-mobile-top p {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.all-projects-con .hidden-mobile-filter-con .hidden-mobile-filter .hidden-mobile-top button {
+    border-radius: 99px;
+    height: 30px;
+    width: 30px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.all-projects-con .hidden-mobile-filter-con .filter-pills-trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.all-projects-con .hidden-mobile-filter-con .filter-pills-trigger button {
+    border-radius: 99px;
+    height: 30px;
+    width: 30px;
+    font-weight: bold;
+}
+
+.all-projects-con .hidden-mobile-filter-con .filter-pills-trigger p {
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 1.05px;
+    color: #8a827a;
+    font-weight: bold;
+}
+
+.all-projects-con .hidden-mobile-filter-con .filter-pills {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.all-projects-con .hidden-mobile-filter-con .filter-pills .active {
+    background-color: var(--color-orange);
+    color: white;
+}
+
+.all-projects-con .hidden-mobile-filter-con .filter-pills button {
+    border-radius: 99px;
+    background-color: var(--color-orange);
+    color: white;
+    padding: 10px 15px;
+    border-radius: 99px;
+    border: none;
+    background: var(--color-bone);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    font-weight: bold;
+    cursor: pointer;
+    transition: .15s;
+    display: flex;
+    align-items: center;
+    color: black;
+}
+
+.all-projects-con .hidden-mobile-filter-con .hidden-mobile-filter .hidden-mobile-bottom {
+    padding-top: 10px;
+    margin-top: 10px;
+    border-top: solid 1px black;
+}
+
+.all-projects-con .hidden-mobile-filter-con .hidden-mobile-filter .hidden-mobile-bottom {
+    display: flex;
+    gap: 10px;
+}
+
+.all-projects-con .hidden-mobile-filter-con .hidden-mobile-filter .hidden-mobile-bottom>button {
+    border-radius: 99px;
+    background: var(--color-bone);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    font-weight: bold;
+    cursor: pointer;
+    transition: .15s;
+    color: black;
+    text-align: center;
+    padding: 10px 15px;
+}
+
+.all-projects-con .hidden-mobile-filter-con .hidden-mobile-filter .hidden-mobile-bottom>button:first-of-type {
+    width: 30%;
+}
+
+.all-projects-con .hidden-mobile-filter-con .hidden-mobile-filter .hidden-mobile-bottom>button:last-of-type {
+    width: 70%;
 }

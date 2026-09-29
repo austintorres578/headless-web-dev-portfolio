@@ -43,6 +43,7 @@ export default function AllProjectsCon() {
   const [activeFilterId, setActiveFilterId] = useState("all");
   const [activeTagId, setActiveTagId] = useState("all");
   const [currentPage, setCurrentPage] = useState(1);
+  const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false);
 
   const [projects, setProjects] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -77,8 +78,8 @@ export default function AllProjectsCon() {
           const acf = post.acf || {};
           const tags = Array.isArray(acf.tags)
             ? acf.tags
-                .filter((id) => tagNames.has(id))
-                .map((id) => decodeHtml(tagNames.get(id)))
+              .filter((id) => tagNames.has(id))
+              .map((id) => decodeHtml(tagNames.get(id)))
             : [];
           const meta =
             Array.isArray(acf.categorymeta) && acf.categorymeta.length > 0
@@ -96,11 +97,11 @@ export default function AllProjectsCon() {
           const galleryField = acf.gallery;
           const galleryUrl =
             typeof galleryField === "string" &&
-            /^https?:\/\//.test(galleryField)
+              /^https?:\/\//.test(galleryField)
               ? galleryField
               : galleryField &&
-                  typeof galleryField === "object" &&
-                  galleryField.url
+                typeof galleryField === "object" &&
+                galleryField.url
                 ? galleryField.url
                 : "";
           const featuredImage =
@@ -244,17 +245,14 @@ export default function AllProjectsCon() {
           </div>
         </div>
         <div className={styles["mobile-filter-trigger-con"]}>
-            <div className={styles["mobile-filter-trigger-wrapper"]}>
-                <div className={styles["mobile-filters-top"]}>
-                    <button>Filters</button>
-                    <span>1 Project</span>
-                </div>
-                <div className={styles["mobile-filters-bottom"]}>
-                  <button>Category/Tag</button>
-                  <button>Category/Tag</button>
-                  <button>Category/Tag</button>
-                </div>
+          <div className={styles["mobile-filter-trigger-wrapper"]}>
+            <div className={styles["mobile-filters-top"]}>
+              <button onClick={() => setIsMobileFilterOpen(true)}><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
+                <path d="M4 6h10M18 6h2M4 12h4M12 12h8M4 18h12"></path><circle cx="16" cy="6" r="2"></circle><circle cx="10" cy="12" r="2"></circle><circle cx="18" cy="18" r="2"></circle>
+              </svg> Filters</button>
+              <p>{filteredProjects.length} Project{filteredProjects.length === 1 ? "" : "s"}</p>
             </div>
+          </div>
         </div>
       </div>
       <div className={styles["section-wrapper"]}>
@@ -332,11 +330,64 @@ export default function AllProjectsCon() {
           </div>
         )}
       </div>
-      <div className={styles["hidden-mobile-filter-con"]}>
+      <div
+        className={`${styles["hidden-mobile-filter-con"]} ${
+          isMobileFilterOpen ? "" : styles["invisible"]
+        }`}
+      >
         <div className={styles["hidden-mobile-filter"]}>
-
+          <div className={styles["hidden-mobile-top"]}>
+            <p><strong>Filters</strong></p>
+            <button onClick={() => setIsMobileFilterOpen(false)}>✕</button>
+          </div>
+          <div className={styles["filter-pills-con"]}>
+            <div className={styles["filter-pills-trigger"]}>
+              <p>Categories</p>
+              <button>⌵</button>
+            </div>
+            <div className={styles["filter-pills"]}>
+              {filters.map((filter) => (
+                <button
+                  key={filter.id}
+                  className={filter.id === activeFilterId ? styles["active"] : ""}
+                  onClick={() => handleFilterClick(filter.id)}
+                  aria-pressed={filter.id === activeFilterId}
+                >
+                  {filter.label}
+                </button>
+              ))}
+            </div>
+          </div>
+          <div className={styles["filter-pills-con"]}>
+            <div className={styles["filter-pills-trigger"]}>
+              <p>Tech</p>
+              <button>⌵</button>
+            </div>
+            <div className={styles["filter-pills"]}>
+              {tagFilters.map((tag) => (
+                <button
+                  key={tag.id}
+                  className={tag.id === activeTagId ? styles["active"] : ""}
+                  onClick={() => handleTagClick(tag.id)}
+                  aria-pressed={tag.id === activeTagId}
+                >
+                  {tag.label}
+                </button>
+              ))}
+            </div>
+          </div>
+          <div className={styles["hidden-mobile-bottom"]}>
+            <button onClick={() => {
+              handleFilterClick("all");
+              handleTagClick("all");
+              setCurrentPage(1);
+            }}>Clear All</button>
+            <button onClick={() => setIsMobileFilterOpen(false)}>
+              Show {filteredProjects.length} Project{filteredProjects.length === 1 ? "" : "s"}
+            </button>
+          </div>
         </div>
-      </div>  
+      </div>
     </section>
   );
 }
