@@ -42,8 +42,13 @@ function getPageNumbers(currentPage, totalPages) {
 export default function AllProjectsCon() {
   const [activeFilterId, setActiveFilterId] = useState("all");
   const [activeTagId, setActiveTagId] = useState("all");
+  const [activeWorkId, setActiveWorkId] = useState("all");
   const [currentPage, setCurrentPage] = useState(1);
   const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false);
+  const [openGroups, setOpenGroups] = useState({
+    categories: true,
+    tech: true,
+  });
 
   const [projects, setProjects] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -118,6 +123,7 @@ export default function AllProjectsCon() {
             featured: false,
             tags,
             meta,
+            work: acf.work || "",
             title: decodeHtml(post.title?.rendered),
             description: acf.subtitletag_line || "",
             featuredImage,
@@ -147,6 +153,32 @@ export default function AllProjectsCon() {
     };
   }, []);
 
+  // TEMPORARY debug: logs the raw project response. Remove when done.
+  useEffect(() => {
+    let cancelled = false;
+
+    fetch(`${WP_API_URL}/project?per_page=100&_embed`)
+      .then((response) => {
+        if (!response.ok)
+          throw new Error(
+            `Debug project fetch failed with status ${response.status}`,
+          );
+        return response.json();
+      })
+      .then((data) => {
+        if (cancelled) return;
+        console.log("All projects:", data);
+      })
+      .catch((error) => {
+        if (cancelled) return;
+        console.error("Debug project fetch failed:", error);
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
   // Pills come from the categories actually used by projects, so unused
   // WordPress categories never show up as empty filters.
   const filters = [
@@ -165,12 +197,21 @@ export default function AllProjectsCon() {
       .map((name) => ({ id: name, label: name })),
   ];
 
+  const workFilters = [
+    { id: "all", label: "All" },
+    ...[...new Set(projects.map((project) => project.work).filter(Boolean))]
+      .sort((a, b) => a.localeCompare(b))
+      .map((name) => ({ id: name, label: name })),
+  ];
+
   const filteredProjects = projects.filter((project) => {
     const matchesCategory =
       activeFilterId === "all" || project.meta === activeFilterId;
     const matchesTag =
       activeTagId === "all" || project.tags.includes(activeTagId);
-    return matchesCategory && matchesTag;
+    const matchesWork =
+      activeWorkId === "all" || project.work === activeWorkId;
+    return matchesCategory && matchesTag && matchesWork;
   });
 
   const totalPages = Math.max(
@@ -197,6 +238,16 @@ export default function AllProjectsCon() {
     if (tagId === activeTagId) return;
     setActiveTagId(tagId);
     setCurrentPage(1);
+  }
+
+  function handleWorkClick(workId) {
+    if (workId === activeWorkId) return;
+    setActiveWorkId(workId);
+    setCurrentPage(1);
+  }
+
+  function toggleGroup(groupName) {
+    setOpenGroups((prev) => ({ ...prev, [groupName]: !prev[groupName] }));
   }
 
   function goToPage(page) {
@@ -239,6 +290,21 @@ export default function AllProjectsCon() {
                   aria-pressed={tag.id === activeTagId}
                 >
                   {tag.label}
+                </button>
+              ))}
+            </div>
+          </div>
+          <div className={styles["work"]}>
+            <span>Work</span>
+            <div>
+              {workFilters.map((work) => (
+                <button
+                  key={work.id}
+                  className={work.id === activeWorkId ? styles["active"] : ""}
+                  onClick={() => handleWorkClick(work.id)}
+                  aria-pressed={work.id === activeWorkId}
+                >
+                  {work.label}
                 </button>
               ))}
             </div>
@@ -343,9 +409,21 @@ export default function AllProjectsCon() {
           <div className={styles["filter-pills-con"]}>
             <div className={styles["filter-pills-trigger"]}>
               <p>Categories</p>
-              <button>⌵</button>
+              <button
+                onClick={() => toggleGroup("categories")}
+                aria-expanded={openGroups.categories}
+                style={{
+                  transform: openGroups.categories ? "rotate(180deg)" : "rotate(0deg)",
+                }}
+              >
+                ⌵
+              </button>
             </div>
-            <div className={styles["filter-pills"]}>
+            <div
+              className={`${styles["filter-pills"]} ${
+                openGroups.categories ? "" : styles["invisible"]
+              }`}
+            >
               {filters.map((filter) => (
                 <button
                   key={filter.id}
@@ -361,9 +439,21 @@ export default function AllProjectsCon() {
           <div className={styles["filter-pills-con"]}>
             <div className={styles["filter-pills-trigger"]}>
               <p>Tech</p>
-              <button>⌵</button>
+              <button
+                onClick={() => toggleGroup("tech")}
+                aria-expanded={openGroups.tech}
+                style={{
+                  transform: openGroups.tech ? "rotate(180deg)" : "rotate(0deg)",
+                }}
+              >
+                ⌵
+              </button>
             </div>
-            <div className={styles["filter-pills"]}>
+            <div
+              className={`${styles["filter-pills"]} ${
+                openGroups.tech ? "" : styles["invisible"]
+              }`}
+            >
               {tagFilters.map((tag) => (
                 <button
                   key={tag.id}
