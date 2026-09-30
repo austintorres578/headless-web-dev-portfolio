@@ -8,7 +8,7 @@
     .mobile-filter-trigger-con
     .mobile-filter-trigger-wrapper {
     display: flex;
-    padding:0px
+    padding: 0px;
   }
 }
 
@@ -37,11 +37,74 @@
   border: 1px solid rgba(0, 0, 0, 0.08);
   padding: 30px;
   border-radius: 15px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  background-color: var(--color-bone);
+}
+
+.all-projects-con .project-filter-pills-wrapper .show-button {
+  border: none;
+  padding: 0px;
+  margin-top: 15px;
+  width: fit-content;
+  background: transparent;
+  color: var(--color-orange);
+  display: flex;
+  align-items: center;
+  border-bottom: solid 1px var(--color-orange);
+  position: relative;
+  border-radius: 0px;
+}
+
+.all-projects-con .project-filter-pills-wrapper .show-button:after {
+  content: "⌵";
+  position: absolute;
+  right: -15px;
+}
+
+.all-projects-con .project-filter-pills-wrapper .show-button:hover {
+  border: none;
 }
 
 .all-projects-con .project-filter-pills-wrapper > div {
   display: flex;
   flex-direction: column;
+}
+
+.all-projects-con .project-filter-pills-wrapper > div button{
+  background-color: white;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
+}
+
+.all-projects-con .project-filter-pills-wrapper > div button:hover{
+  border:solid 1px black;
+}
+
+.all-projects-con .project-filter-pills-wrapper .tech > span{
+  color:var(--color-strip-green);
+}
+
+.all-projects-con .project-filter-pills-wrapper .tech > .show-button{
+  color:var(--color-strip-green);
+  border-bottom:solid 1px var(--color-strip-green)
+}
+
+.all-projects-con .project-filter-pills-wrapper .work > .show-button{
+  color:var(--color-strip-blue);
+  border-bottom:solid 1px var(--color-strip-blue)
+}
+
+.all-projects-con .project-filter-pills-wrapper .work > span{
+  color:var(--color-strip-blue);
+}
+
+.all-projects-con .project-filter-pills-wrapper .tech .active{
+  background:var(--color-strip-green);
+  color:white
+}
+
+.all-projects-con .project-filter-pills-wrapper .work .active{
+  background:var(--color-strip-blue);
+  color:white
 }
 
 .all-projects-con .project-filter-pills-wrapper > div span {
@@ -53,9 +116,27 @@
 
 .all-projects-con .project-filter-pills-wrapper > div div {
   display: flex;
+}
+
+.all-projects-con .project-filter-pills-wrapper > div .collapsed {
+  display: flex;
   gap: 15px;
   flex-wrap: wrap;
   margin-top: 15px;
+  max-height: 46px;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  width: fit-content;
+}
+
+.all-projects-con .project-filter-pills-wrapper > div .expanded {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-top: 15px;
+  max-height: 1000px;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
 }
 
 .all-projects-con .project-filter-pills button {

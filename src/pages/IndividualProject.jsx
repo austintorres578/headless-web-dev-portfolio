@@ -62,6 +62,7 @@ async function fetchJson(url) {
 
 function ProjectPage({ slug }) {
   const [project, setProject] = useState(null);
+  const [nextProject, setNextProject] = useState(null);
   // status is one of 'loading' | 'ready' | 'not-found' | 'error'
   const [status, setStatus] = useState('loading');
 
@@ -70,10 +71,11 @@ function ProjectPage({ slug }) {
 
     Promise.all([
       fetchJson(`${WP_API_URL}/project?slug=${encodeURIComponent(slug)}`),
+      fetchJson(`${WP_API_URL}/project?per_page=100`),
       fetchJson(`${WP_API_URL}/tags?per_page=100`),
       fetchJson(`${WP_API_URL}/categories?per_page=100`),
     ])
-      .then(([data, tagTerms, categoryTerms]) => {
+      .then(([data, allPosts, tagTerms, categoryTerms]) => {
         if (cancelled) return;
         if (data.length === 0) {
           setStatus('not-found');
@@ -105,6 +107,33 @@ function ProjectPage({ slug }) {
           techStack: parseTechStack(acf.tech_stack),
           results: parseLines(acf.results),
         });
+
+        // Build the same ordered list AllProjectsCon.jsx uses (by
+        // display_order, blank last, title as tiebreaker), find this
+        // project's position in it, and pick whichever comes after —
+        // wrapping back to the first project if this is the last one.
+        const ordered = allPosts
+          .map((p) => {
+            const order = parseInt(p.acf?.display_order, 10);
+            return {
+              slug: p.slug,
+              title: decodeHtml(p.title?.rendered),
+              order: Number.isNaN(order) ? Infinity : order,
+            };
+          })
+          .sort((a, b) => {
+            if (a.order === b.order) return a.title.localeCompare(b.title);
+            return a.order < b.order ? -1 : 1;
+          });
+
+        const currentIndex = ordered.findIndex((p) => p.slug === slug);
+        if (currentIndex !== -1 && ordered.length > 1) {
+          const nextIndex = (currentIndex + 1) % ordered.length;
+          setNextProject(ordered[nextIndex]);
+        } else {
+          setNextProject(null);
+        }
+
         setStatus('ready');
       })
       .catch((error) => {
@@ -157,6 +186,7 @@ function ProjectPage({ slug }) {
         liveSiteUrl={project.liveSiteUrl}
         githubUrl={project.githubUrl}
       />
+      <ColorDiv />
       <div className={styles["indiv-project-page-container"]}>
         <section className={styles["project-screenshot-container"]}>
           <div className={styles["section-wrapper"]}>
@@ -218,15 +248,17 @@ function ProjectPage({ slug }) {
             </div>
           </section>
         )}
-        <section className={styles["indiv-project-nav"]}>
-          <div className={styles["section-wrapper"]}>
-            <div>
-              <span>Next Project</span>
-              <Link to="#">Soylent Clone </Link>
+        {nextProject && (
+          <section className={styles["indiv-project-nav"]}>
+            <div className={styles["section-wrapper"]}>
+              <div>
+                <span>Next Project</span>
+                <Link to={`/projects/${nextProject.slug}`}>{nextProject.title}</Link>
+              </div>
+              <Link to="/projects" className={styles["project-button"]}>All Projects</Link>
             </div>
-            <Link to="/projects" className={styles["project-button"]}>All Projects</Link>
-          </div>
-        </section>
+          </section>
+        )}
       </div>
       <ColorDiv />
     </>

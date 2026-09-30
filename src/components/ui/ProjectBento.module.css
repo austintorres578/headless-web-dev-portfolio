@@ -50,6 +50,15 @@
   flex-wrap: wrap;
   flex: 1;
   min-height: 150px;
+  position:relative;
+}
+
+.project-image:after {
+  content: '';
+  display: block;
+  position: absolute;
+  inset: 0;
+  background-color: #00000020;
 }
 
 .project-card.featured .project-image { min-height: 220px; }
@@ -58,9 +67,11 @@
   background: white;
   color: var(--color-orange);
   font-weight: 700;
-  font-size: 11px;
+  font-size: 14px;
   padding: 3px 9px;
   border-radius: 999px;
+  position: relative;
+  z-index: 1;
 }
 
 .project-content { padding: 16px 18px 20px; }
@@ -106,4 +117,11 @@
     min-height: 0;
   }
   .bento-grid .project-card.featured { grid-row: auto; }
+}
+
+.project-tags{
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  gap: 8px;
 }

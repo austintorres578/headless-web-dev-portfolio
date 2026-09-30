@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import ProjectCard from "../ui/ProjectCard";
 
 import styles from "./AllProjectsCon.module.css";
@@ -39,16 +39,41 @@ function getPageNumbers(currentPage, totalPages) {
   return pages;
 }
 
+function rowNeedsExpand(wrapperEl) {
+  if (!wrapperEl) return false;
+  const pillsEl = wrapperEl.querySelector(
+    `.${styles.collapsed}, .${styles.expanded}`,
+  );
+  if (!pillsEl) return false;
+
+  const buttons = Array.from(pillsEl.children).filter(
+    (child) => child.tagName === "BUTTON",
+  );
+  const GAP = 15; // matches the row's CSS `gap: 15px`
+  const contentWidth =
+    buttons.reduce((sum, btn) => sum + btn.offsetWidth, 0) +
+    GAP * Math.max(buttons.length - 1, 0);
+
+  return contentWidth > wrapperEl.clientWidth;
+}
+
 export default function AllProjectsCon() {
-  const [activeFilterId, setActiveFilterId] = useState("all");
-  const [activeTagId, setActiveTagId] = useState("all");
-  const [activeWorkId, setActiveWorkId] = useState("all");
+  const [activeFilterIds, setActiveFilterIds] = useState([]);
+  const [activeTagIds, setActiveTagIds] = useState([]);
+  const [activeWorkIds, setActiveWorkIds] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false);
   const [openGroups, setOpenGroups] = useState({
-    categories: true,
-    tech: true,
+    categories: false,
+    tech: false,
+    work: false,
   });
+  const [expandedRows, setExpandedRows] = useState({
+    categories: false,
+    tech: false,
+    work: false,
+  });
+
 
   const [projects, setProjects] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -206,11 +231,14 @@ export default function AllProjectsCon() {
 
   const filteredProjects = projects.filter((project) => {
     const matchesCategory =
-      activeFilterId === "all" || project.meta === activeFilterId;
+      activeFilterIds.length === 0 ||
+      activeFilterIds.includes(project.meta);
     const matchesTag =
-      activeTagId === "all" || project.tags.includes(activeTagId);
+      activeTagIds.length === 0 ||
+      project.tags.some((tag) => activeTagIds.includes(tag));
     const matchesWork =
-      activeWorkId === "all" || project.work === activeWorkId;
+      activeWorkIds.length === 0 ||
+      activeWorkIds.includes(project.work);
     return matchesCategory && matchesTag && matchesWork;
   });
 
@@ -226,29 +254,75 @@ export default function AllProjectsCon() {
   const pageNumbers = getPageNumbers(currentPage, totalPages);
 
   function handleFilterClick(filterId) {
-    if (filterId === activeFilterId) return;
-    setActiveFilterId(filterId);
-    // Changing the filter changes what page 1 even means, so always
-    // snap back to page 1 rather than leaving currentPage pointed at
-    // a page that may no longer exist under the new filter.
+    if (filterId === "all") {
+      setActiveFilterIds([]);
+    } else {
+      setActiveFilterIds((prev) =>
+        prev.includes(filterId)
+          ? prev.filter((id) => id !== filterId)
+          : [...prev, filterId]
+      );
+    }
     setCurrentPage(1);
   }
 
   function handleTagClick(tagId) {
-    if (tagId === activeTagId) return;
-    setActiveTagId(tagId);
+    if (tagId === "all") {
+      setActiveTagIds([]);
+    } else {
+      setActiveTagIds((prev) =>
+        prev.includes(tagId)
+          ? prev.filter((id) => id !== tagId)
+          : [...prev, tagId]
+      );
+    }
     setCurrentPage(1);
   }
 
   function handleWorkClick(workId) {
-    if (workId === activeWorkId) return;
-    setActiveWorkId(workId);
+    if (workId === "all") {
+      setActiveWorkIds([]);
+    } else {
+      setActiveWorkIds((prev) =>
+        prev.includes(workId)
+          ? prev.filter((id) => id !== workId)
+          : [...prev, workId]
+      );
+    }
     setCurrentPage(1);
   }
 
   function toggleGroup(groupName) {
     setOpenGroups((prev) => ({ ...prev, [groupName]: !prev[groupName] }));
   }
+
+  function toggleRow(rowName) {
+    setExpandedRows((prev) => ({ ...prev, [rowName]: !prev[rowName] }));
+  }
+
+  const categoriesWrapperRef = useRef(null);
+  const techWrapperRef = useRef(null);
+  const workWrapperRef = useRef(null);
+
+  const [rowOverflows, setRowOverflows] = useState({
+    categories: false,
+    tech: false,
+    work: false,
+  });
+
+  useEffect(() => {
+    function measureRows() {
+      setRowOverflows({
+        categories: rowNeedsExpand(categoriesWrapperRef.current),
+        tech: rowNeedsExpand(techWrapperRef.current),
+        work: rowNeedsExpand(workWrapperRef.current),
+      });
+    }
+
+    measureRows();
+    window.addEventListener("resize", measureRows);
+    return () => window.removeEventListener("resize", measureRows);
+  }, [filters, tagFilters, workFilters]);
 
   function goToPage(page) {
     if (page < 1 || page > totalPages || page === currentPage) return;
@@ -262,52 +336,113 @@ export default function AllProjectsCon() {
     <section className={styles["all-projects-con"]}>
       <div className={styles["project-filter-pills"]}>
         <div className={styles["project-filter-pills-wrapper"]}>
-          <div className={styles["categories"]}>
+          <div className={styles["categories"]} ref={categoriesWrapperRef}>
             <span>Categories</span>
-            <div>
+            <div
+              className={expandedRows.categories ? styles["expanded"] : styles["collapsed"]}
+            >
               {filters.map((filter) => (
                 <button
                   key={filter.id}
                   className={
-                    filter.id === activeFilterId ? styles["active"] : ""
+                    (filter.id === "all"
+                      ? activeFilterIds.length === 0
+                      : activeFilterIds.includes(filter.id))
+                      ? styles["active"]
+                      : ""
                   }
                   onClick={() => handleFilterClick(filter.id)}
-                  aria-pressed={filter.id === activeFilterId}
+                  aria-pressed={
+                    filter.id === "all"
+                      ? activeFilterIds.length === 0
+                      : activeFilterIds.includes(filter.id)
+                  }
                 >
                   {filter.label}
                 </button>
               ))}
             </div>
+            {rowOverflows.categories && (
+              <button
+                className={styles["show-button"]}
+                onClick={() => toggleRow("categories")}
+                aria-expanded={expandedRows.categories}
+              >
+                {expandedRows.categories ? "Show less" : "Show more"}
+              </button>
+            )}
           </div>
-          <div className={styles["tech"]}>
+          <div className={styles["tech"]} ref={techWrapperRef}>
             <span>Tech</span>
-            <div>
+            <div
+              className={expandedRows.tech ? styles["expanded"] : styles["collapsed"]}
+            >
               {tagFilters.map((tag) => (
                 <button
                   key={tag.id}
-                  className={tag.id === activeTagId ? styles["active"] : ""}
+                  className={
+                    (tag.id === "all"
+                      ? activeTagIds.length === 0
+                      : activeTagIds.includes(tag.id))
+                      ? styles["active"]
+                      : ""
+                  }
                   onClick={() => handleTagClick(tag.id)}
-                  aria-pressed={tag.id === activeTagId}
+                  aria-pressed={
+                    tag.id === "all"
+                      ? activeTagIds.length === 0
+                      : activeTagIds.includes(tag.id)
+                  }
                 >
                   {tag.label}
                 </button>
               ))}
             </div>
+            {rowOverflows.tech && (
+              <button
+                className={styles["show-button"]}
+                onClick={() => toggleRow("tech")}
+                aria-expanded={expandedRows.tech}
+              >
+                {expandedRows.tech ? "Show less" : "Show more"}
+              </button>
+            )}
           </div>
-          <div className={styles["work"]}>
+          <div className={styles["work"]} ref={workWrapperRef}>
             <span>Work</span>
-            <div>
+            <div
+              className={expandedRows.work ? styles["expanded"] : styles["collapsed"]}
+            >
               {workFilters.map((work) => (
                 <button
                   key={work.id}
-                  className={work.id === activeWorkId ? styles["active"] : ""}
+                  className={
+                    (work.id === "all"
+                      ? activeWorkIds.length === 0
+                      : activeWorkIds.includes(work.id))
+                      ? styles["active"]
+                      : ""
+                  }
                   onClick={() => handleWorkClick(work.id)}
-                  aria-pressed={work.id === activeWorkId}
+                  aria-pressed={
+                    work.id === "all"
+                      ? activeWorkIds.length === 0
+                      : activeWorkIds.includes(work.id)
+                  }
                 >
                   {work.label}
                 </button>
               ))}
             </div>
+            {rowOverflows.work && (
+              <button
+                className={styles["show-button"]}
+                onClick={() => toggleRow("work")}
+                aria-expanded={expandedRows.work}
+              >
+                {expandedRows.work ? "Show less" : "Show more"}
+              </button>
+            )}
           </div>
         </div>
         <div className={styles["mobile-filter-trigger-con"]}>
@@ -427,9 +562,19 @@ export default function AllProjectsCon() {
               {filters.map((filter) => (
                 <button
                   key={filter.id}
-                  className={filter.id === activeFilterId ? styles["active"] : ""}
+                  className={
+                    (filter.id === "all"
+                      ? activeFilterIds.length === 0
+                      : activeFilterIds.includes(filter.id))
+                      ? styles["active"]
+                      : ""
+                  }
                   onClick={() => handleFilterClick(filter.id)}
-                  aria-pressed={filter.id === activeFilterId}
+                  aria-pressed={
+                    filter.id === "all"
+                      ? activeFilterIds.length === 0
+                      : activeFilterIds.includes(filter.id)
+                  }
                 >
                   {filter.label}
                 </button>
@@ -457,19 +602,70 @@ export default function AllProjectsCon() {
               {tagFilters.map((tag) => (
                 <button
                   key={tag.id}
-                  className={tag.id === activeTagId ? styles["active"] : ""}
+                  className={
+                    (tag.id === "all"
+                      ? activeTagIds.length === 0
+                      : activeTagIds.includes(tag.id))
+                      ? styles["active"]
+                      : ""
+                  }
                   onClick={() => handleTagClick(tag.id)}
-                  aria-pressed={tag.id === activeTagId}
+                  aria-pressed={
+                    tag.id === "all"
+                      ? activeTagIds.length === 0
+                      : activeTagIds.includes(tag.id)
+                  }
                 >
                   {tag.label}
                 </button>
               ))}
             </div>
           </div>
+          <div className={styles["filter-pills-con"]}>
+            <div className={styles["filter-pills-trigger"]}>
+              <p>Work</p>
+              <button
+                onClick={() => toggleGroup("work")}
+                aria-expanded={openGroups.work}
+                style={{
+                  transform: openGroups.work ? "rotate(180deg)" : "rotate(0deg)",
+                }}
+              >
+                ⌵
+              </button>
+            </div>
+            <div
+              className={`${styles["filter-pills"]} ${
+                openGroups.work ? "" : styles["invisible"]
+              }`}
+            >
+              {workFilters.map((work) => (
+                <button
+                  key={work.id}
+                  className={
+                    (work.id === "all"
+                      ? activeWorkIds.length === 0
+                      : activeWorkIds.includes(work.id))
+                      ? styles["active"]
+                      : ""
+                  }
+                  onClick={() => handleWorkClick(work.id)}
+                  aria-pressed={
+                    work.id === "all"
+                      ? activeWorkIds.length === 0
+                      : activeWorkIds.includes(work.id)
+                  }
+                >
+                  {work.label}
+                </button>
+              ))}
+            </div>
+          </div>
           <div className={styles["hidden-mobile-bottom"]}>
             <button onClick={() => {
-              handleFilterClick("all");
-              handleTagClick("all");
+              setActiveFilterIds([]);
+              setActiveTagIds([]);
+              setActiveWorkIds([]);
               setCurrentPage(1);
             }}>Clear All</button>
             <button onClick={() => setIsMobileFilterOpen(false)}>

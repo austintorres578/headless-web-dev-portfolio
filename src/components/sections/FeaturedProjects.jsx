@@ -1,7 +1,6 @@
 import {Link} from 'react-router-dom'
 
 import styles from './FeaturedProjects.module.css'
-import ProjectCarousel from '../ui/ProjectCarousel.jsx'
 import ProjectBento from '../ui/ProjectBento.jsx'
 import SectionHeader from '../ui/SectionHeader.jsx'
 

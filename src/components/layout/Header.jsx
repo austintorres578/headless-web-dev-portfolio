@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 
 import styles from "./Header.module.css";
 
-import siteLogo from "../../../public/images/site_logo.png";
 import SocialLinks from "../ui/SocialLinks";
 
 export default function Header() {
@@ -13,9 +12,9 @@ export default function Header() {
     <header className={styles["site-header"]}>
       <div className={styles["site-header__inner"]}>
         <div className={styles["site-branding"]}>
-          <a href="/" className={styles["site-logo"]} rel="home">
+          <Link to="/" className={styles["site-logo"]} rel="home">
             <img src="/images/site_logo.png" alt="Austin Torres" />
-          </a>
+          </Link>
         </div>
 
         {/* <button className={styles['nav-toggle']} id="navToggle" aria-controls="primary-menu" aria-expanded="false">
@@ -55,9 +54,9 @@ export default function Header() {
       >
         <div className={styles["mobile-nav-wrapper"]}>
           <div>
-            <a href="/">
-              <img src="/images/site_logo.png"></img>
-            </a>
+            <Link to="/" className={styles["site-logo"]} rel="home">
+              <img src="/images/site_logo.png" alt="Austin Torres" />
+            </Link>
             <button
               className={styles["close-button"]}
               onClick={() => setMobileNavOpen(false)}

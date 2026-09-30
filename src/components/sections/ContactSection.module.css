@@ -26,6 +26,16 @@
     }
 }
 
+.status{
+    color:white;
+    text-align: center;
+}
+
+.status-bad{
+    color:red;
+    text-align: center;
+}
+
 .contact-section {
     background: var(--color-charcoal);
 }
