@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
 import styles from "./Header.module.css";
 
@@ -7,6 +7,9 @@ import SocialLinks from "../ui/SocialLinks";
 
 export default function Header() {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
+
+  const navLinkClass = ({ isActive }) =>
+    isActive ? styles["active"] : undefined;
 
   return (
     <header className={styles["site-header"]}>
@@ -25,18 +28,15 @@ export default function Header() {
         <nav className={styles["main-navigation"]} aria-label="Primary">
           <ul id="primary-menu" className={styles["nav-menu"]}>
             <li>
-              <Link to="/#tech">Tech</Link>
+              <NavLink className={navLinkClass} to="/projects">Projects</NavLink>
             </li>
             <li>
-              <Link to="/projects">Projects</Link>
-            </li>
-            <li>
-              <Link to="/contact">Contact</Link>
+              <NavLink className={navLinkClass} to="/contact">Contact</NavLink>
             </li>
           </ul>
         </nav>
 
-        <a className={`${styles["orange-button"]} orange-button`} href="#">
+        <a className={`${styles["orange-button"]} orange-button`} href="/Austin_Torres_Resume.pdf" download>
           Resume
         </a>
         <button
@@ -68,13 +68,13 @@ export default function Header() {
                 if (e.target.closest("a")) setMobileNavOpen(false);
               }}
             >
-              <Link to="/#tech">Tech</Link>
-              <Link to="/projects">Projects</Link>
-              <Link to="/contact">Contact</Link>
+              <NavLink className={navLinkClass} to="/#tech">Tech</NavLink>
+              <NavLink className={navLinkClass} to="/projects">Projects</NavLink>
+              <NavLink className={navLinkClass} to="/contact">Contact</NavLink>
             </nav>
           </div>
           <div>
-            <a href="#" className={styles["mobile-resume-button"]}>
+            <a href="/Austin_Torres_Resume.pdf" download className={styles["mobile-resume-button"]}>
               Resume
             </a>
             <div className={styles["mobile-socials"]}>

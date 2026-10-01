@@ -106,7 +106,8 @@ export default function Contact() {
               <li>
                 <img src={resumeIcon} alt="" />
                 <a
-                  href="#"
+                  href="/Austin_Torres_Resume.pdf"
+                  download
                   className={styles["resume"]}
                   target="_blank"
                   rel="noopener noreferrer"
