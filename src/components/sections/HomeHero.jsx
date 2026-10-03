@@ -33,7 +33,7 @@ export default function HomeHero() {
           </div>
         </div>
         <div className={styles["hero-austin"]}>
-          <img src="/images/retro-austin.webp" alt="Austin Torres" />
+          <img src="/images/austin-full.png" alt="Austin Torres" />
         </div>
       </div>
     </section>

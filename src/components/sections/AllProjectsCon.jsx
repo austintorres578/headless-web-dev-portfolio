@@ -322,7 +322,7 @@ export default function AllProjectsCon() {
     measureRows();
     window.addEventListener("resize", measureRows);
     return () => window.removeEventListener("resize", measureRows);
-  }, [filters, tagFilters, workFilters]);
+  }, [projects]);
 
   function goToPage(page) {
     if (page < 1 || page > totalPages || page === currentPage) return;

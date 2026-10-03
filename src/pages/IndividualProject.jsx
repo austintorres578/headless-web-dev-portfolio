@@ -190,7 +190,14 @@ function ProjectPage({ slug }) {
       <div className={styles["indiv-project-page-container"]}>
         <section className={styles["project-screenshot-container"]}>
           <div className={styles["section-wrapper"]}>
-            <img src={projectPlaceholder} alt="Project Screenshot" />
+            <div className={styles["project-screenshots"]}>
+              <img src={projectPlaceholder} alt="Project Screenshot" />
+              <img src={projectPlaceholder} alt="Project Screenshot" className={styles["center-image"]} />
+              <img src={projectPlaceholder} alt="Project Screenshot" />
+            </div>
+            <div className="screenshots-nav-con">
+              
+            </div>
           </div>
         </section>
         {project.problem.length > 0 && (

@@ -11,7 +11,6 @@
 
 .project-screenshot-container .section-wrapper {
   padding: 30px;
-  max-width: 1260px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -22,6 +21,24 @@
   object-fit: contain;
   box-shadow: 0 24px 50px rgba(20, 22, 28, 0.3);
 }
+
+.project-screenshot-container .section-wrapper .project-screenshots{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  gap: 30px;
+  box-sizing: border-box;
+}
+
+.project-screenshot-container .section-wrapper .project-screenshots img{
+  transform: scale(.85);
+}
+
+.project-screenshot-container .section-wrapper .project-screenshots .center-image{
+  transform: scale(1);
+}
+
+
 
 .problem-section .section-wrapper {
   padding: 30px;
