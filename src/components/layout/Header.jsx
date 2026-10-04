@@ -28,6 +28,9 @@ export default function Header() {
         <nav className={styles["main-navigation"]} aria-label="Primary">
           <ul id="primary-menu" className={styles["nav-menu"]}>
             <li>
+              <NavLink className={navLinkClass} to="/">Experience</NavLink>
+            </li>
+            <li>
               <NavLink className={navLinkClass} to="/projects">Projects</NavLink>
             </li>
             <li>
@@ -68,7 +71,7 @@ export default function Header() {
                 if (e.target.closest("a")) setMobileNavOpen(false);
               }}
             >
-              <NavLink className={navLinkClass} to="/#tech">Tech</NavLink>
+              <NavLink className={navLinkClass} to="/#tech">Experience</NavLink>
               <NavLink className={navLinkClass} to="/projects">Projects</NavLink>
               <NavLink className={navLinkClass} to="/contact">Contact</NavLink>
             </nav>
