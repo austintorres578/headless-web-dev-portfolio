@@ -15,7 +15,7 @@ export default function ProjectHero({
   return (
     <section className={styles["project-hero"]}>
       <div className={styles["section-wrapper"]}>
-        <Link to="/" className={styles["back-home"]}>
+        <Link to="/projects" className={styles["back-home"]}>
           Back to home
         </Link>
         {eyebrow.length > 0 && (
