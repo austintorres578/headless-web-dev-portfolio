@@ -35,7 +35,7 @@ const EXPERIENCE = [
 
 export default function ExperienceSection() {
     return (
-        <section className={styles["experience-section"]}>
+        <section id="experience" className={styles["experience-section"]}>
             <div className={styles["section-wrapper"]}>
                 <div className={styles["generic-section-header"]}>
                     <SectionHeader
