@@ -1,0 +1,101 @@
+:root {
+  /* Brand accent */
+  --color-orange: #ff5a1f;
+  --color-orange-hover: #fc7e51;
+  --color-orange-deep: #e6501a;
+  --color-orange-glow: rgba(255, 90, 31, 0.15);
+  --color-bone: #fdf9f4;
+
+  /* Warm charcoal surfaces */
+  --color-charcoal: #1a1614;
+  --color-charcoal-raised: #221d1b;
+  --color-charcoal-deep: rgb(18, 15, 13);
+  --color-charcoal-border: #413c3a;
+
+  /* Cool ink surfaces (terminal chrome) */
+  --color-ink: #14161c;
+  --color-ink-raised: #1e2029;
+  --color-ink-raised-alt: #26282e;
+  --color-ink-shadow-rgb: 20, 22, 28;
+  --color-stone-gray:#cbcfd8;
+
+  /* Status colors */
+  --color-teal: #17b890;
+  --color-teal-soft: rgba(23, 184, 144, 0.12);
+  --color-yellow: #f4c430;
+
+  /* Traffic-light dots */
+  --color-dot-red: #ff5f56;
+  --color-dot-yellow: #ffbd2e;
+  --color-dot-green: #27c93f;
+
+  /* Color divider strip */
+  --color-strip-yellow: rgb(250, 214, 95);
+  --color-strip-green: rgb(69, 223, 146);
+  --color-strip-blue: rgb(70, 113, 255);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-padding-top: 110px;
+}
+
+body {
+  margin: 0px;
+  padding-top: 110px;
+  overflow-x: hidden;
+  font-family: "Inter", system-ui, sans-serif;
+}
+
+@media(max-width:765px){
+  html {
+    scroll-padding-top: 100px;
+  }
+
+  body{
+    padding-top: 100px;
+  }
+
+  body h2{
+    font-size: 30px;
+  }
+}
+
+h1, h2, h3, h4 {
+  font-family: "Sora", sans-serif;
+  font-weight: 700;
+  line-height: 1;
+}
+
+h2{
+  font-size: 36px;
+  margin-bottom: 0px;
+
+}
+
+.orange-button {
+  background: rgb(255 90 31);
+  border: solid 1px rgb(255 90 31);
+  padding: 8px 15px;
+  border-radius: 99px;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  transition: .25s;
+  position: relative;
+  top: 0px;
+  cursor: pointer;
+}
+
+.orange-button:hover{
+  top: -3px;
+}
+
+.empty-space{
+  height: 30px;
+}

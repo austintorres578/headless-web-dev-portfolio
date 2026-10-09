@@ -1,0 +1,38 @@
+.footer-con{
+    background-color: var(--color-charcoal-deep);
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 200px;
+}
+
+.footer-con > a{
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 15px;
+}
+
+.footer-con > a img{
+    height: 20px;
+    width: auto;
+    object-fit: contain;
+}
+
+.footer-con div{
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    gap: 15px;
+}
+
+.footer-con div a{
+    text-decoration: none;
+    color: white;
+}
+
+.footer-con > p{
+    text-align: center;
+    color: gray;
+}

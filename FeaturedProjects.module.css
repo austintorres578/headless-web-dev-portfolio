@@ -1,0 +1,98 @@
+@media(max-width:1535px){
+    body .featured-project-section .section-wrapper:before{
+        display: none;
+    }
+}
+
+@media(max-width:850px){
+    body .featured-project-section .section-wrapper{
+        flex-direction: column;
+        display: flex;
+    }
+}
+
+@media(max-width:765px){
+    body .featured-project-section .section-wrapper{
+        padding: 60px 15px;
+    }
+}
+
+.featured-project-section{
+    background-color: white;
+}
+
+.featured-project-section .section-wrapper{
+    max-width:1260px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 60px 30px;
+    position: relative;
+}
+
+.featured-project-section .section-wrapper:before {
+    content: "Projects";
+    position: absolute;
+    left: -7%;
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(270deg);
+    font-size: 120px;
+    font-weight: bold;
+    color: black;
+}
+
+/* .featured-project-section .generic-section-header{
+    margin-bottom: 30px;
+} */
+
+.featured-project-section .generic-section-header .eyebrow{
+    color:var(--color-orange);
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.featured-project-section .generic-section-header .eyebrow:before{
+    content:"";
+    height: 2px;
+    width: 25px;
+    background-color:var(--color-orange);
+    margin-right: 10px;
+}
+
+.featured-project-section .generic-section-header h2{
+    margin-top: 10px;
+}
+
+.featured-project-section .generic-section-header p{
+    max-width:500px;
+}
+
+.featured-project-section .button-cta-con{
+    margin: 50px 30px;
+}
+
+.featured-project-section .button-cta-con a{
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: fit-content;
+    
+}
+
+.featured-project-section .button-cta-con a button{
+    border:solid 1px black;
+    border-radius:99px;
+    padding: 10px;
+    min-width: 150px;
+    background-color: transparent;
+    font-weight: bold;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5)
+}
+
+.featured-project-section .header-wrapper{
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
