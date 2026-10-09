@@ -1,3 +1,31 @@
+@media (max-width: 1000px) {
+  body .bento-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: none;
+  }
+
+  body .bento-grid .project-card.featured {
+    grid-row: auto;
+  }
+}
+
+@media (max-width: 765px) {
+  body .bento-grid {
+    display: flex;
+    flex-direction: column;
+    max-width: 435px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+  }
+}
+
+@media (max-width: 500px) {
+  body .bento-grid {
+    max-width: 100%;
+    width: 100%;
+  }
+}
 
 .bento-grid {
   display: grid;
@@ -39,7 +67,7 @@
 
 .project-image {
   background: var(--color-orange-deep);
-  background-image: url('../../../public/images/project-placeholder-image.png');
+  background-image: url("../../../public/images/project-placeholder-image.png");
   background-position: center;
   background-size: 225px;
   background-repeat: no-repeat;
@@ -50,18 +78,20 @@
   flex-wrap: wrap;
   flex: 1;
   min-height: 150px;
-  position:relative;
+  position: relative;
 }
 
 .project-image:after {
-  content: '';
+  content: "";
   display: block;
   position: absolute;
   inset: 0;
   background-color: #00000020;
 }
 
-.project-card.featured .project-image { min-height: 220px; }
+.project-card.featured .project-image {
+  min-height: 220px;
+}
 
 .project-image span {
   background: white;
@@ -74,7 +104,9 @@
   z-index: 1;
 }
 
-.project-content { padding: 16px 18px 20px; }
+.project-content {
+  padding: 16px 18px 20px;
+}
 
 .project-content .meta {
   color: #8a827a;
@@ -99,8 +131,12 @@
    bump up the heading and description size. Smaller stacked cards
    never hit this breakpoint and stay compact. */
 @container project-card (min-width: 420px) {
-  .project-content .title { font-size: 21px; }
-  .project-content .description { font-size: 14.5px; }
+  .project-content .title {
+    font-size: 21px;
+  }
+  .project-content .description {
+    font-size: 14.5px;
+  }
 }
 
 .project-content .cta {
@@ -116,12 +152,14 @@
     grid-template-rows: none;
     min-height: 0;
   }
-  .bento-grid .project-card.featured { grid-row: auto; }
+  .bento-grid .project-card.featured {
+    grid-row: auto;
+  }
 }
 
-.project-tags{
-  display:flex;
-  align-items:center;
-  flex-wrap:wrap;
+.project-tags {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
   gap: 8px;
 }

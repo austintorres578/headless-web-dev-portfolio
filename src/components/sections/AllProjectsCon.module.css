@@ -1,3 +1,106 @@
+/* ===== Projects mini loading state ===== */
+
+.projects-loading-con {
+  width: 100%;
+  padding: 40px 24px;
+  display: flex;
+  justify-content: center;
+}
+
+.projects-loading-window {
+  width: 100%;
+  max-width: 400px;
+  background: var(--color-ink);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 18px 40px rgba(20, 22, 28, 0.18);
+}
+
+.loading-titlebar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  background: var(--color-ink-raised);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.loading-dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+}
+.loading-dot.red { background: var(--color-dot-red); }
+.loading-dot.yellow { background: var(--color-dot-yellow); }
+.loading-dot.green { background: var(--color-dot-green); }
+
+.loading-titlebar-label {
+  margin-left: 8px;
+  font-family: ui-monospace, "JetBrains Mono", "Cascadia Code", Consolas, monospace;
+  font-size: 13px;
+  color: #8a8f9b;
+}
+
+.loading-bar-wrap {
+  padding: 20px 20px 22px;
+}
+
+.loading-bar {
+  height: 6px;
+  border-radius: 99px;
+  background: rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+  position: relative;
+}
+
+.loading-bar::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 40%;
+  border-radius: 99px;
+  background: linear-gradient(
+    90deg,
+    var(--color-orange),
+    var(--color-strip-yellow),
+    var(--color-strip-green),
+    var(--color-strip-blue)
+  );
+  animation: projects-slide 1.4s ease-in-out infinite;
+}
+
+@keyframes projects-slide {
+  0%   { transform: translateX(-100%); }
+  100% { transform: translateX(250%); }
+}
+
+.loading-caption {
+  margin-top: 12px;
+  font-size: 13px;
+  font-family: ui-monospace, "JetBrains Mono", "Cascadia Code", Consolas, monospace;
+  color: #8a8f9b;
+  display: flex;
+  align-items: center;
+}
+
+.loading-cursor {
+  display: inline-block;
+  width: 8px;
+  height: 15px;
+  background: #c9ccd4;
+  margin-left: 8px;
+  animation: projects-blink 1s step-end infinite;
+}
+
+@keyframes projects-blink { 50% { opacity: 0; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .loading-bar::after { animation: none; width: 100%; }
+  .loading-cursor { animation: none; }
+}
+
+/* ===== End mini loading state ===== */
+
 @media(max-width:1100px){
   body .all-projects-con .projects-con{
     grid-template-columns: 1fr 1fr;

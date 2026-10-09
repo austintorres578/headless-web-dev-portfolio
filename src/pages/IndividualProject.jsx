@@ -193,9 +193,45 @@ function ProjectPage({ slug }) {
   if (status === "loading") {
     return (
       <div className={styles["indiv-project-page-container"]}>
-        <section>
-          <div className={styles["section-wrapper"]}>
-            <p>Loading project…</p>
+        <section
+          className={styles["project-loading-con"]}
+          role="status"
+          aria-live="polite"
+          aria-label="Loading project"
+        >
+          <div className={styles["project-loading-window"]}>
+            <div className={styles["loading-titlebar"]}>
+              <span className={`${styles["loading-dot"]} ${styles["red"]}`}></span>
+              <span className={`${styles["loading-dot"]} ${styles["yellow"]}`}></span>
+              <span className={`${styles["loading-dot"]} ${styles["green"]}`}></span>
+              <span className={styles["loading-titlebar-label"]}>austin@portfolio — fetch</span>
+            </div>
+            <div className={styles["loading-body"]}>
+              <div className={styles["loading-line"]}>
+                <span className={styles["loading-prompt"]}>$</span>
+                <span>fetch <span className={styles["accent"]}>project</span> --from cms</span>
+                <span className={`${styles["loading-status"]} ${styles["done"]}`}>ok</span>
+              </div>
+              <div className={styles["loading-line"]}>
+                <span className={styles["loading-prompt"]}>$</span>
+                <span>load tags &amp; categories</span>
+                <span className={`${styles["loading-status"]} ${styles["done"]}`}>ok</span>
+              </div>
+              <div className={styles["loading-line"]}>
+                <span className={styles["loading-prompt"]}>$</span>
+                <span>load screenshots</span>
+                <span className={styles["loading-status"]}>...</span>
+              </div>
+              <div className={styles["loading-line"]}>
+                <span className={styles["loading-prompt"]}>$</span>
+                <span>render page</span>
+                <span className={styles["loading-status"]}>...</span>
+              </div>
+              <div className={styles["loading-bar"]}></div>
+              <div className={styles["loading-caption"]}>
+                Loading project<span className={styles["loading-cursor"]}></span>
+              </div>
+            </div>
           </div>
         </section>
       </div>

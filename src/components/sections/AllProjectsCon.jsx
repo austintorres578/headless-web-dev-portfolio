@@ -459,7 +459,27 @@ export default function AllProjectsCon() {
       <div className={styles["section-wrapper"]}>
         <div id="projects-grid-top" className={styles["projects-con"]}>
           {isLoading ? (
-            <p className={styles["empty-state"]}>Loading projects…</p>
+            <div
+              className={styles["projects-loading-con"]}
+              role="status"
+              aria-live="polite"
+              aria-label="Loading projects"
+            >
+              <div className={styles["projects-loading-window"]}>
+                <div className={styles["loading-titlebar"]}>
+                  <span className={`${styles["loading-dot"]} ${styles["red"]}`}></span>
+                  <span className={`${styles["loading-dot"]} ${styles["yellow"]}`}></span>
+                  <span className={`${styles["loading-dot"]} ${styles["green"]}`}></span>
+                  <span className={styles["loading-titlebar-label"]}>austin@portfolio — fetch</span>
+                </div>
+                <div className={styles["loading-bar-wrap"]}>
+                  <div className={styles["loading-bar"]}></div>
+                  <div className={styles["loading-caption"]}>
+                    Loading projects<span className={styles["loading-cursor"]}></span>
+                  </div>
+                </div>
+              </div>
+            </div>
           ) : error ? (
             <p className={styles["empty-state"]}>
               Couldn't load projects right now. Please try again later.
