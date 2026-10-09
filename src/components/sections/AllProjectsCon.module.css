@@ -9,6 +9,14 @@
     display: none;
   }
 
+  body .all-projects-con .project-filter-pills{
+    padding:30px 15px;
+  }
+
+  body .all-projects-con .section-wrapper{
+    padding:30px 15px;
+  }
+
   body
     .all-projects-con
     .mobile-filter-trigger-con

@@ -8,6 +8,16 @@
     }
 }
 
+@media(max-width:765px) {
+    body .contact-section .section-wrapper{
+        padding: 30px 15px;
+    }
+
+    body .contact-hero .section-wrapper{
+        padding:30px 15px;
+    }
+}
+
 @media(max-width:550px){
     body .contact-section .section-wrapper .contact-form-con form>div{
         grid-template-columns: 1fr;

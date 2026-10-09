@@ -1,3 +1,9 @@
+@media(max-width:765px){
+    body .interior-hero .section-wrapper{
+        padding:30px 15px;
+    }
+}
+
 .interior-hero{
     background: var(--color-charcoal);
     min-height: 400px;

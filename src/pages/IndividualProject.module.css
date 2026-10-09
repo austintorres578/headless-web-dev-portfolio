@@ -57,6 +57,22 @@
     flex-direction: column;
   }
 
+  body .problem-section .section-wrapper{
+    padding: 30px 15px;
+  }
+
+  body .solution-section .section-wrapper{
+    padding: 30px 15px;
+  }
+
+  body .tech-stack-section .section-wrapper{
+    padding: 30px 15px;
+  }
+
+  body .results-section .section-wrapper{
+    padding: 30px 15px;
+  }
+
   body .project-screenshot-container .screenshots-nav-con {
     max-width: 500px;
   }
