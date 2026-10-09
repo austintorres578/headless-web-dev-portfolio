@@ -1,3 +1,9 @@
+@media(max-width:1100px){
+  body .all-projects-con .projects-con{
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
 @media (max-width: 765px) {
   body .all-projects-con .project-filter-pills-wrapper {
     display: none;
@@ -9,6 +15,10 @@
     .mobile-filter-trigger-wrapper {
     display: flex;
     padding: 0px;
+  }
+
+  body .all-projects-con .projects-con{
+    grid-template-columns: 1fr;
   }
 }
 

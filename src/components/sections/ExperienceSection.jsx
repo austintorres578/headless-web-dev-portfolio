@@ -23,14 +23,14 @@ const EXPERIENCE = [
         tags: ['WordPress', 'React', 'Monday API'],
     },
     {
-        id: 'austin-web-works',
-        role: 'Freelance Developer — Austin Web Works',
-        current: false,
-        dates: 'Ongoing',
-        company: 'Self-employed · NJ',
-        description: '20+ WordPress builds for local NJ businesses, run alongside full-time work — handling client communication, scoping, and delivery independently start to finish.',
-        tags: ['WordPress', 'Client Work', 'Project Management'],
-    },
+    id: 'independent-projects',
+    role: 'Software Projects — Independent',
+    current: false,
+    dates: 'Ongoing',
+    company: 'Personal projects · NJ',
+    description: 'Self-directed projects where I own the whole stack: React front ends, Firebase and API integrations, and a headless WordPress CMS. Built to practice the same skills I use on the job, applied to my own ideas.',
+    tags: ['React', 'Firebase', 'Gemini API', 'Stripe'],
+},
 ]
 
 export default function ExperienceSection() {
