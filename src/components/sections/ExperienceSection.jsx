@@ -44,7 +44,7 @@ export default function ExperienceSection() {
                         title="Where I've done the work"
                         description="Professional, paid experience — not bootcamp projects or tutorials."
                     />
-                    <span>Currently employed, open to new roles</span>
+                    {/* <span>Currently employed, open to new roles</span> */}
                 </div>
                 <div className={styles["timeline"]}>
                     {EXPERIENCE.map(item => <TimelineItem key={item.id} {...item} />)}

@@ -49,7 +49,7 @@ export default function Contact() {
           <span className={styles["eyebrow"]}>GET IN TOUCH</span>
           <h1>Let's talk about an opportunity</h1>
           <p>
-            Open to front-end and React roles — reach out and I'll get back to
+            Open to hear from you I'll get back to
             you quickly.
           </p>
         </div>
@@ -107,7 +107,6 @@ export default function Contact() {
                 <img src={resumeIcon} alt="" />
                 <a
                   href="/Austin_Torres_Resume.pdf"
-                  download
                   className={styles["resume"]}
                   target="_blank"
                   rel="noopener noreferrer"

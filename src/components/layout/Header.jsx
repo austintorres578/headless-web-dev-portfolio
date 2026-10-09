@@ -42,7 +42,8 @@ export default function Header() {
           </ul>
         </nav>
 
-        <a className={`${styles["orange-button"]} orange-button`} href="/Austin_Torres_Resume.pdf" download>
+        <a className={`${styles["orange-button"]} orange-button`} href="/Austin_Torres_Resume.pdf" target="_blank"
+  rel="noopener noreferrer">
           Resume
         </a>
         <button
@@ -81,7 +82,8 @@ export default function Header() {
             </nav>
           </div>
           <div>
-            <a href="/Austin_Torres_Resume.pdf" download className={styles["mobile-resume-button"]}>
+            <a href="/Austin_Torres_Resume.pdf" target="_blank"
+  rel="noopener noreferrer" className={styles["mobile-resume-button"]}>
               Resume
             </a>
             <div className={styles["mobile-socials"]}>
